@@ -7,8 +7,8 @@ $(document).ready(function() {
     var entityType = "city";
     var typeFood = "mexican";
     // var numberResults = "10";
-
-    function ajaxCall(endpoint, apiKey){
+    var tableBody = document.getElementById('repo-table'); 
+    function ajaxCall(){
        
 
             $.ajax({
@@ -18,13 +18,39 @@ $(document).ready(function() {
                         "user-key": "81567c6d0a81c709e1edf53310578e0c",
                         "Content-type": "application/json"
                     } 
+                    
+
+                         
+                    
 
                 }).done(function (res){
                 console.log(res);
+                
+                for (var i = 0; i < res.restaurants.length; i++){
+                    var createTableRow = document.createElement('tr');
+                    var tableData = document.createElement('td');
+                    var link = document.createElement('a');
+        
+                    link.textContent = res.restaurants[i].restaurant.events_url;
+                    link.href = res.restaurants[i].restaurant.events_url;
+        
+                    tableData.appendChild(link);
+                    createTableRow.appendChild(tableData);
+                    tableBody.appendChild(createTableRow);
+                    //$("#repo-table").append(res[i])
+                }
                 });
-            };
-               
+                
+        };
+       
+        
+        
+
     $("#api-button").click(function(){
         ajaxCall()
+        
     });
 });
+
+
+ //$("#repo-table").append("hello");   
