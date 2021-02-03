@@ -1,4 +1,5 @@
 //81567c6d0a81c709e1edf53310578e0c from zomato
+// Conflict testing
 //curl -X GET --header "Accept: application/json" --header "user-key: 81567c6d0a81c709e1edf53310578e0c" "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318"
 
 $(document).ready(function() {
@@ -18,8 +19,8 @@ $(document).ready(function() {
                         "Content-type": "application/json"
                     } 
 
-                }).done(function (response){
-                console.log(response);
+                }).done(function (res){
+                console.log(res);
                 });
             };
                
