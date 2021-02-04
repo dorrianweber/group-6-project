@@ -1,3 +1,4 @@
+// JavaScript file for Edamam API
 $(document).ready(function() {
     var endpoint = 'https://api.edamam.com/search'
     var apiKey = 'dce91a1b6d878956479351767c573add'
@@ -6,6 +7,7 @@ $(document).ready(function() {
     calMin = 0
     calMax = 4000
 
+    // AJAX call for Edamam API
     function ajaxCall(endpoint, apiKey) {
         if (ingKeyword !== "") {
 
