@@ -9,9 +9,7 @@ calMax = 4000;
 // URL to work w/
 // + "&from=0&to=" + numberResults + "&calories=" + calMin + "-" + calMax + "&health=alcohol-free"
 
-// When the "find recipes" button is clicked...
-$("#recipes-button").click(function(){
-    
+function apiCall(){
     // Sets ingredient keyword to whatever is in the search bar
     var ingKeyword = $("#searchBar").val();
 
@@ -36,4 +34,9 @@ $("#recipes-button").click(function(){
             tableRow.append(tableData);
             $("#recipes-table").append(tableRow);
     }});
+};
+
+// When the "find recipes" button is clicked...
+$("#recipes-button").click(function(){
+    apiCall();    
 });
