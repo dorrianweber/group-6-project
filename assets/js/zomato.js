@@ -8,7 +8,7 @@ $(document).ready(function() {
     var typeFood = "mexican";
     // var numberResults = "10";
     var tableBody = document.getElementById('repo-table');
-
+        
     // AJAX call for Zomato API
     function ajaxCall(){
         $.ajax({
@@ -30,11 +30,17 @@ $(document).ready(function() {
                 var createTableRow = document.createElement('tr');
                 var tableData = document.createElement('td');
                 var link = document.createElement('a');
-    
-                link.textContent = res.restaurants[i].restaurant.events_url;
+                var pic = document.createElement('img');
+
+                link.textContent = res.restaurants[i].restaurant.name;
                 link.href = res.restaurants[i].restaurant.events_url;
+                pic.textContent = res.restaurants[i].restaurant.photos_url;
+                pic.href = res.restaurants[i].restaurant.photos_url;
+                
     
                 tableData.appendChild(link);
+                tableData.appendChild(pic);
+
                 createTableRow.appendChild(tableData);
                 tableBody.appendChild(createTableRow);
                 $("#restaurant-table").append(res[i])
