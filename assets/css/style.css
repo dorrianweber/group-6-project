@@ -17,7 +17,13 @@ h3{
     color: black;
     
 }
+
 body{
     background-color: rgb(219, 198, 10);
 }
 
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+}

@@ -11,19 +11,31 @@
 </head>
 
 <body>
-    
     <div class="container three-wide-column">
-        <h1>A Taste from home.</h1> 
-        <h3>Search for recipes or a restaurant.</h3>
+        <h1>A Taste From Home</h1> 
+        <h3 style="color: white;">Search for recipes or a restaurant.</h3>
+        <b></b>
+
+        <div class="row">
+            <input type="search" id="searchBar" name="q">
+        </div>
+
         <b></b>
         <button id="restaurants-button">Find Restaurants</button>
-        <p id="repo-table"></p>
+        <button id="recipes-button">Find Recipes</button>
 
+        <div class="row">
+            <!-- Updated id to differentiate w/ other table -->
+            <p id="restaurant-table"></p>
+            <!-- New div for recipe table -->
+            <p id="recipes-table" style="text-align: left;"></p>
+        </div>
+        
         <!-- Link for jQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Links for JavaScript files -->
-        <script src="./assets/js/script.js"></script>
-        <script src="./assets/js/zomato.js"></script>
+        <script src="./assets/js/edamam.js"></script>
+        <script src="./assets/js/edamam.js"></script>
     </div>
 </body>
 
