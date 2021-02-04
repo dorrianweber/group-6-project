@@ -7,56 +7,52 @@ $(document).ready(function() {
     var entityType = "city";
     var typeFood = "mexican";
     // var numberResults = "10";
-    var tableBody = document.getElementById('repo-table'); 
+    var tableBody = document.getElementById('repo-table');
+        
+    // AJAX call for Zomato API
     function ajaxCall(){
-       
+        $.ajax({
+            url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + entityID + "&entity_type=" + entityType + "&q=" + typeFood + "%20food",
+            method: "GET",
+            headers: {
+                "user-key": "81567c6d0a81c709e1edf53310578e0c",
+                "Content-type": "application/json"
+            },
+            
+        // When call is finished...
+        }).done(function (res){
 
-            $.ajax({
-                url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + entityID + "&entity_type=" + entityType + "&q=" + typeFood + "%20food",
-                method: "GET",
-                    headers: {
-                        "user-key": "81567c6d0a81c709e1edf53310578e0c",
-                        "Content-type": "application/json"
-                    } 
-                    
+            // Log the information in the console
+            console.log(res);
+            
+            // For loop to populate the table with restaurant information
+            for (var i = 0; i < res.restaurants.length; i++){
+                var createTableRow = document.createElement('tr');
+                var tableData = document.createElement('td');
+                var link = document.createElement('a');
+                var pic = document.createElement('img');
 
-                         
-                    
-
-                }).done(function (res){
-                console.log(res);
+                link.textContent = res.restaurants[i].restaurant.name;
+                link.href = res.restaurants[i].restaurant.events_url;
+                pic.textContent = res.restaurants[i].restaurant.photos_url;
+                pic.href = res.restaurants[i].restaurant.photos_url;
                 
-                for (var i = 0; i < res.restaurants.length; i++){
-                    var createTableRow = document.createElement('tr');
-                    var tableData = document.createElement('td');
-                    var link = document.createElement('a');
-                    var pic = document.createElement('img');
+    
+                tableData.appendChild(link);
+                tableData.appendChild(pic);
 
-                    link.textContent = res.restaurants[i].restaurant.name;
-                    link.href = res.restaurants[i].restaurant.events_url;
-                    pic.textContent = res.restaurants[i].restaurant.photos_url;
-                    pic.href = res.restaurants[i].restaurant.photos_url;
-                    
-        
-                    tableData.appendChild(link);
-                    tableData.appendChild(pic);
-
-                    createTableRow.appendChild(tableData);
-                    tableBody.appendChild(createTableRow);
-                    //$("#repo-table").append(res[i])
-                }
-                });
-                
-        };
-       
-        
-        
-
-    $("#api-button").click(function(){
-        ajaxCall()
-        
+                createTableRow.appendChild(tableData);
+                tableBody.appendChild(createTableRow);
+                //$("#repo-table").append(res[i])
+            };
+        });  
+    };
+    
+    // When the "restaurants button" is clicked...
+    $("#restaurants-button").click(function(){
+        // Run "ajaxCall" function
+        ajaxCall(); 
     });
 });
 
-
- //$("#repo-table").append("hello");   
+//$("#repo-table").append("hello");   
