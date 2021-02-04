@@ -5,19 +5,22 @@
     text-align: center;
     border: black 3px dotted;
 }
-
 h1{
     margin-bottom: 10px;
-    color: rgb(212, 32, 9);
+    color: darkgray;
     text-decoration: underline 2px black;
-    
 }
-
 h3{
     color: black;
-    
-}
-body{
-    background-color: rgb(219, 198, 10);
+    border: black 2px dotted;
+
+
 }
 
+h2{
+    border: dotted 2px;
+    background-color: black;
+}
+body{
+    background-color: coral;
+}
