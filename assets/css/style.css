@@ -21,6 +21,18 @@ h2{
     border: dotted 2px;
     background-color: black;
 }
+
 body{
     background-color: coral;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+}
+
+label {
+    color: white;
+    font-size: small;
 }

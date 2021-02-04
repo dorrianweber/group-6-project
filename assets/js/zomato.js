@@ -43,7 +43,7 @@ $(document).ready(function() {
 
                 createTableRow.appendChild(tableData);
                 tableBody.appendChild(createTableRow);
-                //$("#repo-table").append(res[i])
+                $("#restaurant-table").append(res[i])
             };
         });  
     };
