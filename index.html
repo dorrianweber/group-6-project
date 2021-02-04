@@ -16,8 +16,16 @@
         <h3 style="color: white;">Search for recipes or a restaurant.</h3>
         <b></b>
 
-        <div class="row">
+        <div id="userInputs">
+            <!-- Keyword search bar -->
+            <label for="searchBar">Keyword:</label>
             <input type="search" id="searchBar" name="q">
+
+            <br>
+
+            <!-- Number of results desired -->
+            <label for="numberResults">How many results?</label>
+            <input type="number" id="numberResults" min="1" max="20" required>
         </div>
 
         <b></b>

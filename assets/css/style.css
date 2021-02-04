@@ -31,3 +31,8 @@ body{
     height: 100px;
     margin-right: 5px;
 }
+
+label {
+    color: white;
+    font-size: small;
+}
