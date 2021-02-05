@@ -36,3 +36,7 @@ label {
     color: white;
     font-size: small;
 }
+
+#errorMessage {
+    color: white;
+}
