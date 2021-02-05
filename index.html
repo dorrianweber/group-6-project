@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--bulma doesnt have a set of icons, recommends we use fontawesome-->
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Link for Bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <!-- Link for CSS file -->
@@ -11,9 +14,25 @@
 </head>
 
 <body>
+    <navbar> 
+        <h1>
+            <div class="titlebox">
+                <div class="title">
+                    <span style="color: rgb(230, 155, 16)"> A </span> 
+                    <span style="color: #4CAF50"> Taste </span> 
+                    <span style="color: rgb(129, 27, 129)"> from </span> 
+                    <span style="color: rgb(211, 211, 20)"> Home. </span> 
+                </div>
+                <div class="info">
+                    <span>Search for recipes or a restaurant.</span>
+                </div> 
+            </div> 
+            
+         </h1>
+     </navbar>
+
     <div class="container three-wide-column">
-        <h1>A Taste From Home</h1> 
-        <h3 style="color: white;">Search for recipes or a restaurant.</h3>
+        
         <b></b>
 
         <div id="userInputs">
@@ -58,6 +77,9 @@
         <script src="./assets/js/edamam.js"></script>
         <script src="./assets/js/zomato.js"></script>
     </div>
+    <footer>
+        <br>
+    </footer>
 </body>
 
 </html>
