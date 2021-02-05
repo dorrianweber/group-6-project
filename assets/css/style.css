@@ -10,52 +10,18 @@ h1{
     font-size: 50px;
     font-weight: bolder;
     text-align: center;
-    -webkit-text-stroke: 2px black;
-    text-shadow: black 3px 3px;
+    border: black 3px dotted;
 }
-
-.info{
-    text-align: center;
-    font-weight: bolder;
-    font-size: 30px;
-    color: white;
-    font-style: italic;
-    text-shadow: black 3px 3px;
-    -webkit-text-stroke: 1px black;
+h1{
+    margin-bottom: 10px;
+    color: darkgray;
+    text-decoration: underline 2px black;
 }
-
-button {
-    background-color: #4CAF50; /* Green */
-    border: thin black 5px;
-    color: white;
-    padding: 15px 32px;
-    margin-bottom: 3px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-
 h3{
     color: black;
-    border: black 2px double;
-    
-}
+    border: black 2px dotted;
 
-body{
-    height: 100vh;
-    background-image: url(http://blogs.luc.edu/farmersmarket/files/2020/06/Produce-1140x550.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
 
-.container{
-    font-size: x-large;
-    font-weight: 500;
-    text-align: center;
-    border: black 3px dashed;
 }
 input{
     border: 3px solid greenyellow;
@@ -65,7 +31,9 @@ input{
     padding: 0px 10px;
 }
 
-footer{
+h2{
+    border: dotted 2px;
+    background-color: black;
 }
 
 .container{
@@ -77,18 +45,27 @@ footer{
     /* height:; */
 }
 
-.thumbnail{
+.thumbnail {
     width: 100px;
     height: 100px;
     margin-right: 5px;
 }
 
-label{
+label {
     color: white;
     font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: bold;
 }
 
 #errorMessage {
     color: white;
-}
-
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
