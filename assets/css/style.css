@@ -1,22 +1,8 @@
-<<<<<<< HEAD
 .container{
     background-color: rgb(59, 55, 55);
     font-size: x-large;
     font-weight: bolder;
     font-weight: 500;
-=======
-h1{
-    margin-bottom: 5px;
-    background-image: url(http://blogs.luc.edu/farmersmarket/files/2020/06/Produce-1140x550.jpg);
-    background-size: cover;
-    border:double 15px black;
-    height: 150px;
-}
-
-.title{
-    font-size: 50px;
-    font-weight: bolder;
->>>>>>> 15e6b64543f393c370bc3b6576880fff89c34a5b
     text-align: center;
     -webkit-text-stroke: 2px black;
     text-shadow: black 3px 3px;
@@ -75,19 +61,8 @@ input{
 
 footer{
 }
-<<<<<<< HEAD
 body{
     background-color: coral;
-=======
-
-.container{
-    background-color: rgb(201, 87, 12);
-    font-size: x-large;
-    font-weight: 500;
-    text-align: center;
-    border: black 6px double;
-    height:;
->>>>>>> 15e6b64543f393c370bc3b6576880fff89c34a5b
 }
 
 .thumbnail{
@@ -99,7 +74,6 @@ body{
 label{
     color: white;
     font-size: small;
-<<<<<<< HEAD
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: bold;
@@ -116,7 +90,3 @@ button {
     cursor: pointer;
   }
   
-=======
-}
-
->>>>>>> 15e6b64543f393c370bc3b6576880fff89c34a5b
