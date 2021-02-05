@@ -44,7 +44,20 @@
 
             <!-- Number of results desired -->
             <label for="numberResults">How many results?</label>
-            <input type="number" id="numberResults" min="1" max="20" required>
+            <input type="number" id="numberResults" min="1" max="20">
+
+            <!-- Selectors for food allergies -->
+            <form class="allergies">
+                <input type="checkbox" id="glutenFree" name="glutenFree">
+                <label for="glutenFree"> Gluten-free</label><br>
+
+                <input type="checkbox" id="dairyFree" name="dairyFree">
+                <label for="dairyFree"> Dairy-free</label><br>
+
+                <input type="checkbox" id="peanutFree" name="peanutFree">
+                <label for="peanutFree"> Peanut-free</label><br>
+            </form>
+
         </div>
 
         <b></b>
