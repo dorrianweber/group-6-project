@@ -4,19 +4,19 @@ var apiKey = "dce91a1b6d878956479351767c573add";
 var appID = "36d96c48";
 
 // Stays yes even after you unlick and search again, always puts &glutenfree in API call
-$("#glutenFree").val("no");
+// $("#glutenFree").val("no");
 
-$("#glutenFree").click(function(){
-    if ($("#glutenFree").val("no")) {
-        $("#glutenFree").val("yes");
-    }
-    else if ($("#glutenFree").val("yes")) {
-        $("#glutenFree").val("no");
-    }
+// $("#glutenFree").click(function(){
+//     if ($("#glutenFree").val("no")) {
+//         $("#glutenFree").val("yes");
+//     }
+//     else if ($("#glutenFree").val("yes")) {
+//         $("#glutenFree").val("no");
+//     }
 
-});
+// });
 
-console.log($("#glutenFree").val());
+// console.log($("#glutenFree").val());
 
 // URL to work w/
 // + "&from=0&to=" + "&calories=" + calMin + "-" + calMax + "&health=alcohol-free"
@@ -29,20 +29,20 @@ function apiCall(){
     var numberResults = $("#numberResults").val();
 
     // Building API call URL
-    var apiURL = endpoint + "?q=" + ingKeyword + "&app_id=" + appID + "&app_key=" + apiKey + numberResults;
+    var apiURL = endpoint + "?q=" + ingKeyword + "&app_id=" + appID + "&app_key=" + apiKey;
     
-    console.log($("#glutenFree").val());
+    // console.log($("#glutenFree").val());
     
     // Conditional for gluten-free
-    if ($("#glutenFree").val("yes")) {
-        apiURL = apiURL + "&glutenfree";
-    };
+    // if ($("#glutenFree").val("yes")) {
+    //     apiURL = apiURL + "&glutenfree";
+    // };
 
     // Conditional for number of results
     if (numberResults !== "") {
 
         // Fetch call for Edamam API
-        fetch(apiURL)
+        fetch(apiURL + "&from=0&to=" + numberResults)
 
         .then(function (response) {
             return response.json();
