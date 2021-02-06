@@ -3,39 +3,36 @@ var endpoint = "https://api.edamam.com/search";
 var apiKey = "dce91a1b6d878956479351767c573add";
 var appID = "36d96c48";
 
-// Starting point of API call URL
-var apiURL = endpoint;
+// Sets value of "gluten free" checkbox to unchecked by default when page is loaded
+$("#glutenFree").val("no");
 
-// Parameter section for API URL
-var apiParameters = "?q=";
+// When "gluten free" checkbox is clicked...
+$("#glutenFree").click(function(e){
+    
+    // (Preventing bubbling to other checkboxes)
+    if (e.target.id == "glutenFree") {
+      
+        // If box is unchecked, check it!
+        if ($("#glutenFree").val() == "no") {
+            $("#glutenFree").val("yes");
+        }
 
-// Finishes API URL with app ID & key
-var apiEnd = "&app_id=" + appID + "&app_key=" + apiKey;
+        // If it's checked, uncheck it!
+        else if ($("#glutenFree").val() == "yes") {
+            $("#glutenFree").val("no");
+        }  
 
-// Stays yes even after you unlick and search again, always puts &glutenfree in API call
-// $("#glutenFree").val("no");
-
-// $("#glutenFree").click(function(){
-//     if ($("#glutenFree").val("no")) {
-//         $("#glutenFree").val("yes");
-//     }
-//     else if ($("#glutenFree").val("yes")) {
-//         $("#glutenFree").val("no");
-//     }
-
-// });
-
-// console.log($("#glutenFree").val());
+    };
+});
 
 // Function for calling API
-function apiCall(){
+function apiCall(apiURL, apiParameters, apiEnd){
     
-    // console.log($("#glutenFree").val());
-    
-    // Conditional for gluten-free
-    // if ($("#glutenFree").val("yes")) {
-    //     apiURL = apiURL + "&glutenfree";
-    // };
+    // If "gluten free" checkbox is checked...
+    if ($("#glutenFree").val() == "yes") {
+        // Add that filter to API parameters
+        apiParameters = apiParameters + "&glutenfree";
+    };
 
     // Updates API URL to include all necessary parts
     apiURL = apiURL + apiParameters + apiEnd;
@@ -71,9 +68,21 @@ function apiCall(){
 $("#recipes-button").click(function(){
     // Clears out recipe table
     $("#recipes-table").empty();
-    
+
+    // Starting point of API call URL
+    var apiURL = endpoint;
+
+    // Parameter section for API URL
+    var apiParameters = "?q=";
+
+    // Finishes API URL with app ID & key
+    var apiEnd = "&app_id=" + appID + "&app_key=" + apiKey;
+
     // Sets max number of results returned
     var numberResults = $("#numberResults").val();
+
+    // Working on gluten free option...
+    console.log($("#glutenFree").val());
 
     // As long as number of results input is not blank...
     if (numberResults !== "") {
@@ -88,7 +97,7 @@ $("#recipes-button").click(function(){
         apiParameters = apiParameters + "&from=0&to=" + numberResults;
         
         // Calls Edamam API
-        apiCall();    
+        apiCall(apiURL, apiParameters, apiEnd);    
     }
     
     // Otherwise, displays an error message
