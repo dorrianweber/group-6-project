@@ -21,7 +21,6 @@ $("#glutenFree").click(function(e){
         else if ($("#glutenFree").val() == "yes") {
             $("#glutenFree").val("no");
         }  
-
     };
 });
 
