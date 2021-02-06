@@ -3,61 +3,33 @@ var endpoint = "https://api.edamam.com/search";
 var apiKey = "dce91a1b6d878956479351767c573add";
 var appID = "36d96c48";
 
-// Sets values of allergen checkboxs to unchecked by default when page is loaded
-$("#glutenFree").val("no");
-$("#dairyFree").val("no");
-$("#peanutFree").val("no");
+// Sets values of health label checkboxes to unchecked by default when page is loaded
+$("#vegan").val("no");
+$("#vegetarian").val("no");
+$("#sugar-conscious").val("no");
+$("#peanut-free").val("no");
+$("#tree-nut-free").val("no");
+$("#alcohol-free").val("no");
 
-// When "gluten free" checkbox is clicked...
-$("#glutenFree").click(function(e){
-    
-    // (Preventing bubbling to other checkboxes)
-    if (e.target.id == "glutenFree") {
-      
-        // If box is unchecked, check it!
-        if ($("#glutenFree").val() == "no") {
-            $("#glutenFree").val("yes");
-        }
-
-        // If it's checked, uncheck it!
-        else if ($("#glutenFree").val() == "yes") {
-            $("#glutenFree").val("no");
-        }  
-    };
-});
-
-// When "dairy free" checkbox is clicked...
-$("#dairyFree").click(function(e){
-    
-    // (Preventing bubbling to other checkboxes)
-    if (e.target.id == "dairyFree") {
-      
-        // If box is unchecked, check it!
-        if ($("#dairyFree").val() == "no") {
-            $("#dairyFree").val("yes");
-        }
-
-        // If it's checked, uncheck it!
-        else if ($("#dairyFree").val() == "yes") {
-            $("#dairyFree").val("no");
-        }  
-    };
-});
+// Sets values of diet label checkboxes to unchecked by default when page is loaded
+$("#high-protein").val("no");
+$("#low-fat").val("no");
+$("#low-carb").val("no");
 
 // When "peanut free" checkbox is clicked...
-$("#peanutFree").click(function(e){
+$("#peanut-free").click(function(e){
     
     // (Preventing bubbling to other checkboxes)
-    if (e.target.id == "peanutFree") {
+    if (e.target.id == "peanut-free") {
       
         // If box is unchecked, check it!
-        if ($("#peanutFree").val() == "no") {
-            $("#peanutFree").val("yes");
+        if ($("#peanut-free").val() == "no") {
+            $("#peanut-free").val("yes");
         }
 
         // If it's checked, uncheck it!
-        else if ($("#peanutFree").val() == "yes") {
-            $("#peanutFree").val("no");
+        else if ($("#peanut-free").val() == "yes") {
+            $("#peanut-free").val("no");
         }  
     };
 });
@@ -65,20 +37,8 @@ $("#peanutFree").click(function(e){
 // Function for calling API
 function apiCall(apiURL, apiParameters, apiEnd){
     
-    // If "gluten free" checkbox is checked...
-    if ($("#glutenFree").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&gluten-free";
-    };
-
-    // If "dairy free" checkbox is checked...
-    if ($("#dairyFree").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&dairy-free";
-    };
-
     // If "peanut free" checkbox is checked...
-    if ($("#peanutFree").val() == "yes") {
+    if ($("#peanut-free").val() == "yes") {
         // Add that filter to API parameters
         apiParameters = apiParameters + "&health=peanut-free";
     };
@@ -131,9 +91,6 @@ $("#recipes-button").click(function(){
 
     // Sets max number of results returned
     var numberResults = $("#numberResults").val();
-
-    // Working on gluten free option...
-    console.log($("#glutenFree").val());
 
     // As long as number of results input is not blank...
     if (numberResults !== "") {
