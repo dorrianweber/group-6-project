@@ -50,23 +50,17 @@ h3{
     font-family: sans-serif;
 }
 #numberResults{
-    border: black 2px double;
+    border: 3px solid greenyellow;
 }
 
 body{
     height: 100vh;
-    background-image: url(http://blogs.luc.edu/farmersmarket/files/2020/06/Produce-1140x550.jpg);
+    background-image: url(https://www.inquirer.com/resizer/X2e2KeAt84ebZGKcGVkuNrJPjmg=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/XSXXBDNPURCDTK3QO2F7GFYQUE.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
-input{
-    border: 3px solid greenyellow;
-    height: 30px;
-    width: 60px;
-    border-radius: 50px;
-    padding: 0px 10px;
-}
 #glutenFree{
     width: 20px;
     height: 20px;
@@ -100,11 +94,12 @@ input{
 }
 
 .container{
-    background-color: rgb(201, 87, 12);
+    background-color: rgb(238, 225, 44);
     font-size: x-large;
     font-weight: 500;
     text-align: center;
     border: black 6px double;
+    opacity: .9;
     /* height:; */
 }
 
@@ -126,7 +121,7 @@ button {
   }
 
 label {
-    color: white;
+    color: red;
     font-size: small;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
