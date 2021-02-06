@@ -42,7 +42,7 @@ h3{
     border: black 2px dotted;
 }
 #searchBar{
-    border: 3px solid greenyellow;
+    border: 2px solid red;
     height: 30px;
     width: 200px;
     border-radius: 50px;
@@ -50,7 +50,7 @@ h3{
     font-family: sans-serif;
 }
 #numberResults{
-    border: 3px solid greenyellow;
+    border: 2px solid red;
 }
 
 body{
@@ -61,6 +61,12 @@ body{
     background-size: cover;
 }
 
+input{
+    height: 30px;
+    width: 60px;
+    border-radius: 50px;
+    padding: 0px 10px;
+}
 #glutenFree{
     width: 20px;
     height: 20px;
@@ -109,9 +115,10 @@ body{
     margin-right: 5px;
 }
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: rgb(230, 155, 16); /* Green */
     border: none;
-    color: white;
+    color: black;
+    text-shadow: red 1px 1px;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -122,10 +129,12 @@ button {
 
 label {
     color: red;
-    font-size: small;
+    font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: bold;
+    text-shadow: black 1px 1px;
+    
 }
 
 #errorMessage {
@@ -138,3 +147,6 @@ label {
     cursor: pointer;
   }
   
+a{
+    color:red;
+}
