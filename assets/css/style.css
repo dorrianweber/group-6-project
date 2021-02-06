@@ -6,6 +6,20 @@ h1{
     height: 150px;
 }
 
+h2{
+    color: black;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: bold;
+    text-shadow: black 1px 1px;
+    margin-bottom: 1px;
+}
+
+h3{
+    color: black;
+    border: black 2px dotted;
+}
 .title{
     font-size: 50px;
     font-weight: bolder;
@@ -25,32 +39,32 @@ h1{
 }
 
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: rgb(226, 38, 38); /* Green */
     border: thin black 5px;
-    color: white;
-    padding: 15px 32px;
+    color: rgb(211, 211, 20);
+    font-weight: bolder;
     margin-bottom: 3px;
+    padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-}
 
-h3{
-    color: black;
-    border: black 2px dotted;
-}
+  }
+
+
+
 #searchBar{
-    border: 2px solid red;
+    border: 2px solid rgb(226, 38, 38);
     height: 30px;
     width: 200px;
     border-radius: 50px;
     padding: 0px 10px;
     font-family: sans-serif;
 }
+
 #numberResults{
-    border: 2px solid red;
+    border: 2px solid rgb(226, 38, 38);
 }
 
 body{
@@ -67,6 +81,7 @@ input{
     border-radius: 50px;
     padding: 0px 10px;
 }
+
 #glutenFree{
     width: 20px;
     height: 20px;
@@ -78,6 +93,7 @@ input{
     position: relative;
     cursor: pointer;
 }
+
 #dairyFree{
     cursor: pointer;
     width: 20px;
@@ -88,6 +104,7 @@ input{
     vertical-align: text-bottom;
     position: relative;
 }
+
 #peanutFree{
     cursor: pointer;
     width: 20px;
@@ -104,7 +121,7 @@ input{
     font-size: x-large;
     font-weight: 500;
     text-align: center;
-    border: black 6px double;
+    border: rgb(129, 27, 129) 6px double;
     opacity: .9;
     /* height:; */
 }
@@ -114,27 +131,24 @@ input{
     height: 100px;
     margin-right: 5px;
 }
-button {
-    background-color: rgb(230, 155, 16); /* Green */
-    border: none;
-    color: black;
-    text-shadow: red 1px 1px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-  }
 
 label {
-    color: red;
+    color: rgb(226, 38, 38);
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: bold;
     text-shadow: black 1px 1px;
     
+}
+
+#searchCity{
+    border: 2px solid rgb(226, 38, 38);
+    height: 30px;
+    width: 200px;
+    border-radius: 50px;
+    padding: 0px 10px;
+    font-family: sans-serif;
 }
 
 #errorMessage {
@@ -145,8 +159,18 @@ label {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-  }
+}
   
 a{
-    color:red;
+    color:rgb(226, 38, 38);
+    text-align: center;
+
+}   
+
+#restaurants-button{
+    margin-top: 10px;
+}
+
+#recipes-button{
+    margin-top: 10px;
 }
