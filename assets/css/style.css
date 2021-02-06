@@ -161,6 +161,12 @@ label {
     cursor: pointer;
 }
   
+<<<<<<< HEAD
+#restaurant-table{
+    border-style: dashed;
+    border-color: black;
+}
+=======
 a{
     color:rgb(226, 38, 38);
     text-align: center;
@@ -174,3 +180,4 @@ a{
 #recipes-button{
     margin-top: 10px;
 }
+>>>>>>> b8c8fa46baabfb9cee0f39cb15ee27546d436e1f

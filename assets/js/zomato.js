@@ -9,7 +9,8 @@ $(document).ready(function() {
     function ajaxCall1(){
         var cityName = $("#searchCity").val();
         if(cityName===""){
-            alert("Please enter the name of a city");
+            var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please enter a city");
+            $("#userInputs").append(errorMessage);
             return;
         }
         console.log("cityName", cityName);
@@ -54,22 +55,24 @@ $(document).ready(function() {
             //     }
             // For loop to populate the table with restaurant information
             for (var i = 0; i < res.restaurants.length; i++){
-                var createTableRow = document.createElement('tr');
-                var tableData = document.createElement('td');
-                var link = document.createElement('a');
-                //var rating = $('a').text(res.restaurants[i].restaurant.user_rating.aggregate_rating);
-               
-
-                link.textContent = res.restaurants[i].restaurant.name;
-                link.href = res.restaurants[i].restaurant.events_url;            
+                // var createTableRow = document.createElement('tr');
+                // var tableData = document.createElement('td');
+                //var link = " ";
+                var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
                 
+                //var link = document.createElement('a');
+                var link = (res.restaurants[i].restaurant.name);
+                var address = res.restaurants[i].restaurant.location.address;
+                // link.textContent = res.restaurants[i].restaurant.name;
+                //link.href = res.restaurants[i].restaurant.events_url;            
+                console.log(link);
+                //var resName = document.createElement("p")
+                //resName.appendChild(link);
+                // //tableData.appendChild(rating);
 
-                tableData.appendChild(link);
-                //tableData.appendChild(rating);
-
-                createTableRow.appendChild(tableData);
-                tableBody.appendChild(createTableRow);
-                $("#restaurant-table").append(res[i]);
+                // createTableRow.appendChild(tableData);
+                // tableBody.appendChild(createTableRow);
+                $("#restaurant-table").append(link + " - " + address + "- Rating: " + rating + "<br/>");
             };
         });  
     };
@@ -80,6 +83,7 @@ $(document).ready(function() {
         //add if statement, check if blank, message enter city and type of food
         
         $("#restaurant-table").empty();
+        
         ajaxCall1();
         // ajaxCall2(); 
 
