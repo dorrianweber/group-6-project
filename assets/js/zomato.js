@@ -7,7 +7,7 @@ $(document).ready(function() {
     var entityType = "city";
     var typeFood = "mexican";
     // var numberResults = "10";
-    var tableBody = document.getElementById('repo-table');
+    var tableBody = document.getElementById('restaurant-table');
         
     // AJAX call for Zomato API
     function ajaxCall(){
