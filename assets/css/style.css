@@ -39,6 +39,17 @@ button {
 
 h3{
     color: black;
+    border: black 2px dotted;
+}
+#searchBar{
+    border: 3px solid greenyellow;
+    height: 30px;
+    width: 200px;
+    border-radius: 50px;
+    padding: 0px 10px;
+    font-family: sans-serif;
+}
+#numberResults{
     border: black 2px double;
 }
 
@@ -52,9 +63,40 @@ body{
 input{
     border: 3px solid greenyellow;
     height: 30px;
-    width: 300px;
+    width: 60px;
     border-radius: 50px;
     padding: 0px 10px;
+}
+#glutenFree{
+    width: 20px;
+    height: 20px;
+    font-family: sans-serif;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    vertical-align: text-bottom;
+    position: relative;
+    cursor: pointer;
+}
+#dairyFree{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    vertical-align: text-bottom;
+    position: relative;
+}
+#peanutFree{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    vertical-align: text-bottom;
+    position: relative;
 }
 
 .container{
@@ -71,6 +113,17 @@ input{
     height: 100px;
     margin-right: 5px;
 }
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
 
 label {
     color: white;
