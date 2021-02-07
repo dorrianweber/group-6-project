@@ -35,9 +35,12 @@ $(document).ready(function() {
     
     // AJAX call for Zomato API restaurants
     function ajaxCall2(x){
+        // Passes the type of food to search
         var typeFood = $("#searchBar").val();
+        // Sets max number of results returned
+        var numberResults = $("#numberResults").val();
         $.ajax({
-            url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + x + "&entity_type=city&q=" + typeFood + "%20food&sort=rating",
+            url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + x + "&entity_type=city&count=" + numberResults + "&q=" + typeFood + "%20food&sort=rating",
             method: "GET",
             headers: {
                 "user-key": "81567c6d0a81c709e1edf53310578e0c",
