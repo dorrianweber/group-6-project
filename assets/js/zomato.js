@@ -35,9 +35,12 @@ $(document).ready(function() {
     
     // AJAX call for Zomato API restaurants
     function ajaxCall2(x){
+        // Passes the type of food to search
         var typeFood = $("#searchBar").val();
+        // Sets max number of results returned
+        var numberResults = $("#numberResults").val();
         $.ajax({
-            url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + x + "&entity_type=city&q=" + typeFood + "%20food",
+            url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + x + "&entity_type=city&count=" + numberResults + "&q=" + typeFood + "%20food&sort=rating",
             method: "GET",
             headers: {
                 "user-key": "81567c6d0a81c709e1edf53310578e0c",
@@ -49,30 +52,25 @@ $(document).ready(function() {
 
             // Log the information in the console
             console.log("Food response: ", res);
-            // if(typeFood===""){
-            //     alert("Please enter a type of food");
-            //     return;
-            //     }
-            // For loop to populate the table with restaurant information
+            
             for (var i = 0; i < res.restaurants.length; i++){
-                // var createTableRow = document.createElement('tr');
-                // var tableData = document.createElement('td');
-                //var link = " ";
+                
                 var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
                 
-                //var link = document.createElement('a');
-                var link = (res.restaurants[i].restaurant.name);
+                var link = document.createElement("a");
+                
+                var lsHs = document.querySelector("#restaurant-table");
                 var address = res.restaurants[i].restaurant.location.address;
-                // link.textContent = res.restaurants[i].restaurant.name;
-                //link.href = res.restaurants[i].restaurant.events_url;            
+                link.textContent = res.restaurants[i].restaurant.name;
+                link.href = res.restaurants[i].restaurant.events_url;
+                //$("a").attr("href", res.restaurants[i].restaurant.events_url);
+                       
                 console.log(link);
-                //var resName = document.createElement("p")
-                //resName.appendChild(link);
-                // //tableData.appendChild(rating);
+                var linebreak = document.createElement('br');
 
-                // createTableRow.appendChild(tableData);
-                // tableBody.appendChild(createTableRow);
-                $("#restaurant-table").append(link + " - " + address + "- Rating: " + rating + "<br/>");
+                lsHs.append(link, " - ", address, " - Rating ", rating);
+                lsHs.append(linebreak);
+                
             };
         });  
     };
