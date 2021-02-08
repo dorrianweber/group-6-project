@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
         
-    var tableBody = document.getElementById('restaurant-table');
+    //var tableBody = document.getElementById('restaurant-table');
     
     function ajaxCall1(){
         var cityName = $("#searchCity").val();
@@ -32,13 +32,14 @@ $(document).ready(function() {
             ajaxCall2(x);
         }); 
     };
-    
+   
     // AJAX call for Zomato API restaurants
     function ajaxCall2(x){
         // Passes the type of food to search
         var typeFood = $("#searchBar").val();
         // Sets max number of results returned
         var numberResults = $("#numberResults").val();
+
         $.ajax({
             url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + x + "&entity_type=city&count=" + numberResults + "&q=" + typeFood + "%20food&sort=rating",
             method: "GET",
@@ -72,6 +73,21 @@ $(document).ready(function() {
                 lsHs.append(linebreak);
                 
             };
+            console.log(typeFood);
+
+            
+            //var foodInputEl = $("#searchBar");
+
+            var foodListEl = $('#food-list');
+           ;
+            var printCity = function () {
+            var listEl = $('<li>');
+            var listDetail = typeFood;
+            console.log("food type: ", typeFood)
+            listEl.addClass('list-group-item').text(listDetail);
+            listEl.appendTo(foodListEl);
+            };
+            printCity(typeFood)
         });  
     };
     
