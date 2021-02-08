@@ -23,9 +23,10 @@ The team rose to the challenge and were able to overcome obstacles to complete t
 
 ## Team-members
 
+Team members and role
 1. Reynaldo Bracamonte 
-2. Dorrian Webber
-3. Adrian 
+2. Dorrian Webber 
+3. Adrian Combs
 4. Jephunney Nduati
 5. Petr Constantinov
 
