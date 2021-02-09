@@ -3,134 +3,44 @@ var endpoint = "https://api.edamam.com/search";
 var apiKey = "dce91a1b6d878956479351767c573add";
 var appID = "36d96c48";
 
-// Sets values of health label checkboxes to unchecked by default when page is loaded
-$("#vegan").val("no");
-$("#vegetarian").val("no");
-$("#sugar-conscious").val("no");
-$("#peanut-free").val("no");
-$("#tree-nut-free").val("no");
-$("#alcohol-free").val("no");
+// Array for health labels
+var healthLabels = ["vegan", "vegetarian", "sugar-conscious", "peanut-free", "tree-nut-free", "alcohol-free"];
 
-// When "vegan" checkbox is clicked...
-$("#vegan").click(function(e){
-    
-    // (Preventing bubbling to other checkboxes)
-    if (e.target.id == "vegan") {
-      
+// For-loop for health-labels
+for (var i = 0; i < healthLabels.length; i++) {
+
+    // // Sets values of health label checkboxes to unchecked by default when page is loaded
+    $("#" + healthLabels[i]).val("no");
+
+    // // When checkbox is clicked...
+    $("#" + healthLabels[i]).click(function(e){
+
         // If box is unchecked, check it!
-        if ($("#vegan").val() == "no") {
-            $("#vegan").val("yes");
+        if ($("#" + e.target.id).val() == "no") {
+            
+            console.log("hitting second div");
+
+            $("#" + e.target.id).val("yes");
         }
 
         // If it's checked, uncheck it!
-        else if ($("#vegan").val() == "yes") {
-            $("#vegan").val("no");
+        else if ($("#" + e.target.id).val() == "yes") {
+            $("#" + e.target.id).val("no");
         }  
-    };
-});
-
-// ... and for "vegetarian"
-$("#vegetarian").click(function(e){
-    if (e.target.id == "vegetarian") {
-        if ($("#vegetarian").val() == "no") {
-            $("#vegetarian").val("yes");
-        }
-
-        else if ($("#vegetarian").val() == "yes") {
-            $("#vegetarian").val("no");
-        }  
-    };
-});
-
-// ... and for "sugar-conscious"
-$("#sugar-conscious").click(function(e){
-    if (e.target.id == "sugar-conscious") {
-        if ($("#sugar-conscious").val() == "no") {
-            $("#sugar-conscious").val("yes");
-        }
-
-        else if ($("#sugar-conscious").val() == "yes") {
-            $("#sugar-conscious").val("no");
-        }  
-    };
-});
-
-// ... and for "peanut-free"
-$("#peanut-free").click(function(e){
-    if (e.target.id == "peanut-free") {
-        if ($("#peanut-free").val() == "no") {
-            $("#peanut-free").val("yes");
-        }
-
-        else if ($("#peanut-free").val() == "yes") {
-            $("#peanut-free").val("no");
-        }  
-    };
-});
-
-// ... and for "tree-nut-free"
-$("#tree-nut-free").click(function(e){
-    if (e.target.id == "tree-nut-free") {
-        if ($("#tree-nut-free").val() == "no") {
-            $("#tree-nut-free").val("yes");
-        }
-
-        else if ($("#tree-nut-free").val() == "yes") {
-            $("#tree-nut-free").val("no");
-        }  
-    };
-});
-
-// ... and for "alcohol-free"
-$("#alcohol-free").click(function(e){
-    if (e.target.id == "alcohol-free") {
-        if ($("#alcohol-free").val() == "no") {
-            $("#alcohol-free").val("yes");
-        }
-
-        else if ($("#alcohol-free").val() == "yes") {
-            $("#alcohol-free").val("no");
-        }  
-    };
-});
+    });
+};
 
 // Function for calling API
 function apiCall(apiURL, apiParameters, apiEnd){
     
-    // If "vegan" checkbox is checked...
-    if ($("#vegan").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&health=vegan";
-    };
+    // For-loop for health-labels
+    for (var i = 0; i < healthLabels.length; i++) {
 
-    // ... and for "vegetarian"
-    if ($("#vegetarian").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&health=vegetarian";
-    };
-
-    // ... and for "sugar-conscious"
-    if ($("#sugar-conscious").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&health=sugar-conscious";
-    };
-
-    // ... and for "peanut-free"
-    if ($("#peanut-free").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&health=peanut-free";
-    };
-    
-    // ... and for "tree-nut-free"
-    if ($("#tree-nut-free").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&health=tree-nut-free";
-    };
-    
-    // ... and for "alcohol-free"
-    if ($("#alcohol-free").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&health=alcohol-free";
+        // If checkbox is checked...
+        if ($("#" + healthLabels[i]).val() == "yes") {
+            // Add that filter to API parameters
+            apiParameters = apiParameters + "&health=" + healthLabels[i];
+        };
     };
  
     console.log(apiParameters);
@@ -166,7 +76,10 @@ function apiCall(apiURL, apiParameters, apiEnd){
 };
 
 // When the "find recipes" button is clicked...
-$("#recipes-button").click(function(){
+$("#recipes-button").click(function(event){
+
+    event.preventDefault();
+
     // Clears out recipe table
     $("#recipes-table").empty();
 
