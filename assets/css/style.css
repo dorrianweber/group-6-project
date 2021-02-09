@@ -18,8 +18,28 @@ h2{
 
 h3{
     color: black;
-    border: black 2px dotted;
 }
+
+footer{
+    color: black;
+    font-weight: bold;
+    border: black 2px double;
+    background: transparent;
+    text-align: center;
+    animation: colorchange 10s infinite alternate;
+    text-shadow: black 2px 2px;
+
+}
+
+    @keyframes colorchange {
+        0%   {color: red;}
+        20%  {color: orange;}
+        40%  {color: yellow;}
+        60%  {color: green;}
+        80%  {color: blue;}
+        100% {color: purple;}
+    }
+
 .title{
     font-size: 50px;
     font-weight: bolder;
@@ -161,12 +181,10 @@ label {
     cursor: pointer;
 }
   
-<<<<<<< HEAD
 #restaurant-table{
     border-style: dashed;
     border-color: black;
 }
-=======
 a{
     color:rgb(226, 38, 38);
     text-align: center;
@@ -180,4 +198,3 @@ a{
 #recipes-button{
     margin-top: 10px;
 }
->>>>>>> b8c8fa46baabfb9cee0f39cb15ee27546d436e1f
