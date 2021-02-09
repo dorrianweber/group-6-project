@@ -61,14 +61,11 @@ function apiCall(apiURL, apiParameters, apiEnd){
 
         // Populates table with recipes & thumbnail images
         for (var i = 0; i < data.hits.length; i++){
-            var tableRow = $("<tr>");
-            var tableData = $("<td>");
+            var tableRow = $("<div>").addClass("row");
             var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
             var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
 
-            tableData.append(thumbnail);
-            tableData.append(link);
-            tableRow.append(tableData);
+            tableRow.append(thumbnail, link);
             $("#recipes-table").append(tableRow);
         };
     });
@@ -78,6 +75,7 @@ function apiCall(apiURL, apiParameters, apiEnd){
 // When the "find recipes" button is clicked...
 $("#recipes-button").click(function(event){
 
+    // Prevents defaulting
     event.preventDefault();
 
     // Clears out recipe table
