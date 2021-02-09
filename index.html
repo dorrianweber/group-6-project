@@ -34,9 +34,10 @@
 
         <div id="userInputs">
             <h2> Don't feel like going out? Try a new recipe.</h2>
+
             <!-- Keyword search bar -->
             <label for="searchBar">What are you hungry for?</label>
-            <input type="search" id="searchBar" name="q">
+            <input type="search" autocomplete="off" id="searchBar" name="q">
 
             <br>
 
@@ -45,10 +46,12 @@
             <input type="number" id="numberResults" min="1" max="20">
 
             <!-- Selectors for health labels (6) -->
-
             <form class="health-labels">
                 <input type="checkbox" id="vegan" name="vegan">
                 <label for="vegan"> Vegan</label><br>
+
+                <input type="checkbox" id="vegetarian" name="vegetarian">
+                <label for="vegetarian"> Vegetarian</label><br>
 
                 <input type="checkbox" id="peanut-free" name="peanut-free">
                 <label for="peanut-free"> Peanut-free</label><br>
