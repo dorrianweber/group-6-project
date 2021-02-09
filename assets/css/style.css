@@ -181,10 +181,13 @@ label {
     cursor: pointer;
 }
   
+<<<<<<< HEAD
 #restaurant-table{
     border-style: dashed;
     border-color: black;
 }
+=======
+>>>>>>> 327cb83788acf222c302d6fa1f54eddcd661ab73
 a{
     color:rgb(226, 38, 38);
     text-align: center;
@@ -198,3 +201,10 @@ a{
 #recipes-button{
     margin-top: 10px;
 }
+<<<<<<< HEAD
+=======
+
+.list-group{
+    color: blue;
+}
+>>>>>>> 327cb83788acf222c302d6fa1f54eddcd661ab73
