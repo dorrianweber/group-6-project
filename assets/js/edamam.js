@@ -69,7 +69,6 @@ function apiCall(apiURL, apiParameters, apiEnd){
             $("#recipes-table").append(tableRow);
         };
     });
-
 };
 
 // When the "find recipes" button is clicked...
@@ -106,7 +105,7 @@ $("#recipes-button").click(function(event){
         apiParameters = apiParameters + "&from=0&to=" + numberResults;
         
         // Calls Edamam API
-        apiCall(apiURL, apiParameters, apiEnd);    
+        apiCall(apiURL, apiParameters, apiEnd);
     }
     
     // Otherwise, displays an error message
@@ -114,5 +113,4 @@ $("#recipes-button").click(function(event){
         var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please choose how many results you would like");
         $("#userInputs").append(errorMessage);
     };
-
 });
