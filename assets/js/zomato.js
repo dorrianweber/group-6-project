@@ -4,12 +4,13 @@
 
 $(document).ready(function() {
         
-    var tableBody = document.getElementById('restaurant-table');
+    //var tableBody = document.getElementById('restaurant-table');
     
     function ajaxCall1(){
         var cityName = $("#searchCity").val();
         if(cityName===""){
-            alert("Please enter the name of a city");
+            var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please enter a city");
+            $("#userInputs").append(errorMessage);
             return;
         }
         console.log("cityName", cityName);
@@ -31,12 +32,16 @@ $(document).ready(function() {
             ajaxCall2(x);
         }); 
     };
-    
+   
     // AJAX call for Zomato API restaurants
     function ajaxCall2(x){
+        // Passes the type of food to search
         var typeFood = $("#searchBar").val();
+        // Sets max number of results returned
+        var numberResults = $("#numberResults").val();
+
         $.ajax({
-            url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + x + "&entity_type=city&q=" + typeFood + "%20food",
+            url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + x + "&entity_type=city&count=" + numberResults + "&q=" + typeFood + "%20food&sort=rating",
             method: "GET",
             headers: {
                 "user-key": "81567c6d0a81c709e1edf53310578e0c",
@@ -48,29 +53,41 @@ $(document).ready(function() {
 
             // Log the information in the console
             console.log("Food response: ", res);
-            // if(typeFood===""){
-            //     alert("Please enter a type of food");
-            //     return;
-            //     }
-            // For loop to populate the table with restaurant information
+            
             for (var i = 0; i < res.restaurants.length; i++){
-                var createTableRow = document.createElement('tr');
-                var tableData = document.createElement('td');
-                var link = document.createElement('a');
-                //var rating = $('a').text(res.restaurants[i].restaurant.user_rating.aggregate_rating);
-               
-
-                link.textContent = res.restaurants[i].restaurant.name;
-                link.href = res.restaurants[i].restaurant.events_url;            
                 
+                var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
+                
+                var link = document.createElement("a");
+                
+                var lsHs = document.querySelector("#restaurant-table");
+                var address = res.restaurants[i].restaurant.location.address;
+                link.textContent = res.restaurants[i].restaurant.name;
+                link.href = res.restaurants[i].restaurant.events_url;
+                //$("a").attr("href", res.restaurants[i].restaurant.events_url);
+                       
+                console.log(link);
+                var linebreak = document.createElement('br');
 
-                tableData.appendChild(link);
-                //tableData.appendChild(rating);
-
-                createTableRow.appendChild(tableData);
-                tableBody.appendChild(createTableRow);
-                $("#restaurant-table").append(res[i]);
+                lsHs.append(link, " - ", address, " - Rating ", rating);
+                lsHs.append(linebreak);
+                
             };
+            console.log(typeFood);
+
+            
+            //var foodInputEl = $("#searchBar");
+
+            var foodListEl = $('#food-list');
+           ;
+            var printCity = function () {
+            var listEl = $('<li>');
+            var listDetail = typeFood;
+            console.log("food type: ", typeFood)
+            listEl.addClass('list-group-item').text(listDetail);
+            listEl.appendTo(foodListEl);
+            };
+            printCity(typeFood)
         });  
     };
     
@@ -80,6 +97,7 @@ $(document).ready(function() {
         //add if statement, check if blank, message enter city and type of food
         
         $("#restaurant-table").empty();
+        
         ajaxCall1();
         // ajaxCall2(); 
 

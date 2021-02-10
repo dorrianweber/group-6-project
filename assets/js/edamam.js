@@ -3,36 +3,47 @@ var endpoint = "https://api.edamam.com/search";
 var apiKey = "dce91a1b6d878956479351767c573add";
 var appID = "36d96c48";
 
-// Sets value of "gluten free" checkbox to unchecked by default when page is loaded
-$("#glutenFree").val("no");
+// Array for health labels
+var healthLabels = ["vegan", "vegetarian", "sugar-conscious", "peanut-free", "tree-nut-free", "alcohol-free"];
 
-// When "gluten free" checkbox is clicked...
-$("#glutenFree").click(function(e){
-    
-    // (Preventing bubbling to other checkboxes)
-    if (e.target.id == "glutenFree") {
-      
+// For-loop for health-labels
+for (var i = 0; i < healthLabels.length; i++) {
+
+    // // Sets values of health label checkboxes to unchecked by default when page is loaded
+    $("#" + healthLabels[i]).val("no");
+
+    // // When checkbox is clicked...
+    $("#" + healthLabels[i]).click(function(e){
+
         // If box is unchecked, check it!
-        if ($("#glutenFree").val() == "no") {
-            $("#glutenFree").val("yes");
+        if ($("#" + e.target.id).val() == "no") {
+            
+            console.log("hitting second div");
+
+            $("#" + e.target.id).val("yes");
         }
 
         // If it's checked, uncheck it!
-        else if ($("#glutenFree").val() == "yes") {
-            $("#glutenFree").val("no");
+        else if ($("#" + e.target.id).val() == "yes") {
+            $("#" + e.target.id).val("no");
         }  
-
-    };
-});
+    });
+};
 
 // Function for calling API
 function apiCall(apiURL, apiParameters, apiEnd){
     
-    // If "gluten free" checkbox is checked...
-    if ($("#glutenFree").val() == "yes") {
-        // Add that filter to API parameters
-        apiParameters = apiParameters + "&glutenfree";
+    // For-loop for health-labels
+    for (var i = 0; i < healthLabels.length; i++) {
+
+        // If checkbox is checked...
+        if ($("#" + healthLabels[i]).val() == "yes") {
+            // Add that filter to API parameters
+            apiParameters = apiParameters + "&health=" + healthLabels[i];
+        };
     };
+ 
+    console.log(apiParameters);
 
     // Updates API URL to include all necessary parts
     apiURL = apiURL + apiParameters + apiEnd;
@@ -50,22 +61,22 @@ function apiCall(apiURL, apiParameters, apiEnd){
 
         // Populates table with recipes & thumbnail images
         for (var i = 0; i < data.hits.length; i++){
-            var tableRow = $("<tr>");
-            var tableData = $("<td>");
+            var tableRow = $("<div>").addClass("row");
             var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
             var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
 
-            tableData.append(thumbnail);
-            tableData.append(link);
-            tableRow.append(tableData);
+            tableRow.append(thumbnail, link);
             $("#recipes-table").append(tableRow);
         };
     });
-
 };
 
 // When the "find recipes" button is clicked...
-$("#recipes-button").click(function(){
+$("#recipes-button").click(function(event){
+
+    // Prevents defaulting
+    event.preventDefault();
+
     // Clears out recipe table
     $("#recipes-table").empty();
 
@@ -81,9 +92,6 @@ $("#recipes-button").click(function(){
     // Sets max number of results returned
     var numberResults = $("#numberResults").val();
 
-    // Working on gluten free option...
-    console.log($("#glutenFree").val());
-
     // As long as number of results input is not blank...
     if (numberResults !== "") {
 
@@ -97,7 +105,7 @@ $("#recipes-button").click(function(){
         apiParameters = apiParameters + "&from=0&to=" + numberResults;
         
         // Calls Edamam API
-        apiCall(apiURL, apiParameters, apiEnd);    
+        apiCall(apiURL, apiParameters, apiEnd);
     }
     
     // Otherwise, displays an error message
@@ -105,5 +113,4 @@ $("#recipes-button").click(function(){
         var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please choose how many results you would like");
         $("#userInputs").append(errorMessage);
     };
-
 });

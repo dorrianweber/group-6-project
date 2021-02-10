@@ -6,6 +6,20 @@ h1{
     height: 150px;
 }
 
+h2{
+    color: black;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: bold;
+    text-shadow: black 1px 1px;
+    margin-bottom: 1px;
+}
+
+h3{
+    color: black;
+    border: black 2px dotted;
+}
 .title{
     font-size: 50px;
     font-weight: bolder;
@@ -25,43 +39,43 @@ h1{
 }
 
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: rgb(226, 38, 38); /* Green */
     border: thin black 5px;
-    color: white;
-    padding: 15px 32px;
+    color: rgb(211, 211, 20);
+    font-weight: bolder;
     margin-bottom: 3px;
+    padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-}
 
-h3{
-    color: black;
-    border: black 2px dotted;
-}
+  }
+
+
+
 #searchBar{
-    border: 3px solid greenyellow;
+    border: 2px solid rgb(226, 38, 38);
     height: 30px;
     width: 200px;
     border-radius: 50px;
     padding: 0px 10px;
     font-family: sans-serif;
 }
+
 #numberResults{
-    border: 3px solid greenyellow;
+    border: 2px solid rgb(226, 38, 38);
 }
 
 body{
     height: 100vh;
-    background-image: url(http://blogs.luc.edu/farmersmarket/files/2020/06/Produce-1140x550.jpg);
+    background-image: url(https://www.inquirer.com/resizer/X2e2KeAt84ebZGKcGVkuNrJPjmg=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/XSXXBDNPURCDTK3QO2F7GFYQUE.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 input{
-    border: 3px solid greenyellow;
     height: 30px;
     width: 60px;
     border-radius: 50px;
@@ -143,24 +157,24 @@ input{
     height: 100px;
     margin-right: 5px;
 }
-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-  }
 
 label {
-    color: white;
-    font-size: small;
+    color: rgb(226, 38, 38);
+    font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: bold;
+    text-shadow: black 1px 1px;
+    
+}
+
+#searchCity{
+    border: 2px solid rgb(226, 38, 38);
+    height: 30px;
+    width: 200px;
+    border-radius: 50px;
+    padding: 0px 10px;
+    font-family: sans-serif;
 }
 
 #errorMessage {
@@ -171,5 +185,22 @@ label {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-  }
+}
   
+a{
+    color:rgb(226, 38, 38);
+    text-align: center;
+
+}   
+
+#restaurants-button{
+    margin-top: 10px;
+}
+
+#recipes-button{
+    margin-top: 10px;
+}
+
+.list-group{
+    color: blue;
+}
