@@ -137,6 +137,7 @@ $(document).ready(function() {
             var clearBtn = $("<button>").addClass("clearBtn").text("Clear Favorites").click(function(){
                 $("#restaurant-favorites-list").empty();
                 localStorage.clear();
+                favoriteRestaurants = [];
             });;
 
             // And adds it to the page

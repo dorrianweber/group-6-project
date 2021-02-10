@@ -154,6 +154,7 @@ $("#load-favorite-recipes").click(function(){
         var clearBtn = $("<button>").addClass("clearBtn").text("Clear Favorites").click(function(){
             $("#recipe-favorites-list").empty();
             localStorage.clear();
+            favoriteRecipes = [];
         });;
 
         // And adds it to the page
