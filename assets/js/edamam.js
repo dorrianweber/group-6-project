@@ -63,21 +63,18 @@ function apiCall(apiURL, apiParameters, apiEnd){
         // Logs result of API call in console
         console.log(data);
 
-        // Saves API parameters & data in local storage
-        localStorage.setItem(apiParameters, JSON.stringify(data));
-
         // Populates table with recipes & thumbnail images
         for (var i = 0; i < data.hits.length; i++){
             var tableRow = $("<div>");
             var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
             var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
-            var favoriteBtn = $("<button>").addClass("favoriteBtn")
+            var favoriteBtn = $("<button>").addClass("favoriteBtn").text("☆");
 
             tableRow.append(thumbnail, link, favoriteBtn);
             $("#recipes-table").append(tableRow);
         };
 
-        // When "favorite" button is clicked
+        // When a recipe's "favorite" button is clicked
         $(".favoriteBtn").click(function(event){
             // Saves favorited recipe's title & URL as an object in the global array of favorited recipes
             var newFavorite = {
@@ -138,13 +135,30 @@ $("#recipes-button").click(function(event){
 });
 
 // When "load favorite recipes" button is clicked...
-$("#load-favorites").click(function(){
+$("#load-favorite-recipes").click(function(){
 
-    // For each item in the "favorite recipes" array...
-    for (var i = 0; i < favoriteRecipes.length; i++) {
-    
-        // Add an item to the list with a link to the favorited recipe
-        var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
-        $("#favorites-list").append(favoritedItem);
+    // Clears out recipe table
+    $("#recipe-favorites-list").empty();
+
+    if (favoriteRecipes.length){
+
+        // For each item in the "favorite recipes" array...
+        for (var i = 0; i < favoriteRecipes.length; i++) {
+        
+            // Add an item to the list with a link to the favorited recipe
+            var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
+            $("#recipe-favorites-list").append(favoritedItem);
+        };
+
+        // Creates a button to clear favorites list & local storage when clicked...
+        var clearBtn = $("<button>").addClass("clearBtn").text("Clear Favorites").click(function(){
+            $("#recipe-favorites-list").empty();
+            localStorage.clear();
+            favoriteRecipes = [];
+        });;
+
+        // And adds it to the page
+        $("#recipe-favorites-list").append(clearBtn);
     };
+
 });

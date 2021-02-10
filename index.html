@@ -67,15 +67,19 @@
                 <button id="recipes-button"> Find Recipes</button>
             </form>
             
-             <!-- Shows the list of recipes that were searched -->
-            <div class="container three-wide-column">
-<<<<<<< HEAD
-                <p>search food: </p>
-                <ul class="list-group" id="food-list"></ul>
-=======
-                <button id="load-favorites">Load favorite recipes:</button>
-                <ul class="list-group" id="favorites-list"></ul>
->>>>>>> 7a8add3be130ad94c9c27ef8133a256c6e30ac5c
+            <!-- Area containing favorited recipes & restaurants -->
+            <div id="favorites-section" class="container three-wide-column">
+                <!-- A column for recipes... -->
+                <div class="container three-wide-column">
+                    <button id="load-favorite-recipes">Load favorite recipes:</button>
+                    <ul class="list-group" id="recipe-favorites-list"></ul>
+                </div>
+                
+                <!-- And a column for restaurants... -->
+                <div class="container three-wide-column">
+                    <button id="load-favorite-restaurants">Load favorite restaurants:</button>
+                    <ul class="list-group" id="restaurant-favorites-list"></ul>
+                </div>
             </div>
             
             <div class="row">
@@ -84,18 +88,19 @@
             </div>
 
         </div>
-        <br>
-            <h2>
-                Pandemic finally over?  Find a nice restaurant.
-            </h2>
 
-        <label for="searchCity">Enter City:</label>
-        <input type="search" id="searchCity" name="c" placeholder="Where ya' from?">
         <br>
-        
-        <button id="restaurants-button">Find Restaurants</button>
 
-        <div class="row">
+        <div id="restaurants-area">
+            <h2>Pandemic finally over? Find a nice restaurant.</h2>
+
+            <label for="searchCity">Enter City:</label>
+            <input type="search" id="searchCity" name="c"><br>
+            
+            <button id="restaurants-button">Find Restaurants</button>
+        </div>
+
+        <div class="row" id="results-tables">
             <!-- Updated id to differentiate w/ other table -->
             <p id="restaurant-table"></p>
             <!-- New div for recipe table -->
@@ -108,12 +113,13 @@
         <script src="./assets/js/edamam.js"></script>
         <script src="./assets/js/zomato.js"></script>
     </div>
+
     <footer>
         The brains:     
                    <a href="" class="creators">Reynaldo Bracamonte,  </a>
                    <a href="" class="creators">Jephunney Nduati,  </a>
-                   <a href="" class="creators">Dorrian Webber,  </a>
-                   <a href="https://github.com/acombs801?tab=repositories" class="creators">Adrian combs,  </a>
+                   <a href="" class="creators">Dorrian Weber,  </a>
+                   <a href="https://github.com/acombs801?tab=repositories" class="creators">Adrian Combs,  </a>
                    <a href="" class="creators">Petr Constantinov.</a>
     </footer>
 </body>
