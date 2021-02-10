@@ -6,6 +6,13 @@ var appID = "36d96c48";
 // Array for health labels
 var healthLabels = ["vegan", "vegetarian", "sugar-conscious", "peanut-free", "tree-nut-free", "alcohol-free"];
 
+// Array for favorited recipes
+var favoriteRecipes = [];
+
+if (localStorage.getItem("favoriteRecipe")){
+    favoriteRecipes = JSON.parse(localStorage.getItem("favoriteRecipe"));
+};
+
 // For-loop for health-labels
 for (var i = 0; i < healthLabels.length; i++) {
 
@@ -72,11 +79,16 @@ function apiCall(apiURL, apiParameters, apiEnd){
 
         // When "favorite" button is clicked
         $(".favoriteBtn").click(function(event){
-            var favoriteName = event.target.previousElementSibling.text;
-            var favoriteLink = event.target.previousElementSibling.href;
+            // Saves favorited recipe's title & URL as an object in the global array of favorited recipes
+            var newFavorite = {
+                title: event.target.previousElementSibling.text,
+                link: event.target.previousElementSibling.href
+            };
+
+            favoriteRecipes.push(newFavorite);
             
-            // Saves favorited recipe's name & link in local storage
-            localStorage.setItem(favoriteName, favoriteLink);
+            // Saves favorited recipe's info in local storage
+            localStorage.setItem("favoriteRecipe", JSON.stringify(favoriteRecipes));
         });
     });
 };
@@ -122,5 +134,17 @@ $("#recipes-button").click(function(event){
     else {
         var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please choose how many results you would like");
         $("#userInputs").append(errorMessage);
+    };
+});
+
+// When "load favorite recipes" button is clicked...
+$("#load-favorites").click(function(){
+
+    // For each item in the "favorite recipes" array...
+    for (var i = 0; i < favoriteRecipes.length; i++) {
+    
+        // Add an item to the list with a link to the favorited recipe
+        var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
+        $("#favorites-list").append(favoritedItem);
     };
 });
