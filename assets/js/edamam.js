@@ -17,9 +17,6 @@ for (var i = 0; i < healthLabels.length; i++) {
 
         // If box is unchecked, check it!
         if ($("#" + e.target.id).val() == "no") {
-            
-            console.log("hitting second div");
-
             $("#" + e.target.id).val("yes");
         }
 
@@ -59,15 +56,28 @@ function apiCall(apiURL, apiParameters, apiEnd){
         // Logs result of API call in console
         console.log(data);
 
+        // Saves API parameters & data in local storage
+        localStorage.setItem(apiParameters, JSON.stringify(data));
+
         // Populates table with recipes & thumbnail images
         for (var i = 0; i < data.hits.length; i++){
-            var tableRow = $("<div>").addClass("row");
+            var tableRow = $("<div>");
             var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
             var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
+            var favoriteBtn = $("<button>").addClass("favoriteBtn")
 
-            tableRow.append(thumbnail, link);
+            tableRow.append(thumbnail, link, favoriteBtn);
             $("#recipes-table").append(tableRow);
         };
+
+        // When "favorite" button is clicked
+        $(".favoriteBtn").click(function(event){
+            var favoriteName = event.target.previousElementSibling.text;
+            var favoriteLink = event.target.previousElementSibling.href;
+            
+            // Saves favorited recipe's name & link in local storage
+            localStorage.setItem(favoriteName, favoriteLink);
+        });
     });
 };
 
