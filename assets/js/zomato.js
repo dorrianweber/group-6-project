@@ -3,7 +3,14 @@
 //curl -X GET --header "Accept: application/json" --header "user-key: 81567c6d0a81c709e1edf53310578e0c" "https://developers.zomato.com/api/v2.1/restaurant?res_id=16774318"
 
 $(document).ready(function() {
-        
+    
+    // Array for favorited restaurants
+    var favoriteRestaurants = [];
+
+    if (localStorage.getItem("favoriteRestaurant")){
+        favoriteRestaurants = JSON.parse(localStorage.getItem("favoriteRestaurant"));
+    };
+
     //var tableBody = document.getElementById('restaurant-table');
     
     function ajaxCall1(){
@@ -56,23 +63,30 @@ $(document).ready(function() {
             
             for (var i = 0; i < res.restaurants.length; i++){
                 
-                var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
-                
-                var link = document.createElement("a");
-                
-                var lsHs = document.querySelector("#restaurant-table");
+                var tableRow = $("<div>");
+                var link = $("<a>").attr("href", res.restaurants[i].restaurant.events_url).text(res.restaurants[i].restaurant.name);
                 var address = res.restaurants[i].restaurant.location.address;
-                link.textContent = res.restaurants[i].restaurant.name;
-                link.href = res.restaurants[i].restaurant.events_url;
-                //$("a").attr("href", res.restaurants[i].restaurant.events_url);
-                       
-                console.log(link);
-                var linebreak = document.createElement('br');
+                var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
+                var favoriteBtn = $("<button>").addClass("favoriteBtn").text("☆");
 
-                lsHs.append(link, " - ", address, " - Rating ", rating);
-                lsHs.append(linebreak);
-                
+                tableRow.append(link, " - ", address, " - Rating ", rating, favoriteBtn);
+                $("#restaurant-table").append(tableRow);
             };
+
+            $(".favoriteBtn").click(function(event){
+
+                // Saves favorited restaurant's title & link as an object in the global array of favorited recipes
+                var newFavorite = {
+                    name: event.target.previousElementSibling.text,
+                    link: event.target.previousElementSibling.href
+                };
+    
+                favoriteRestaurants.push(newFavorite);
+                
+                // Saves favorited restaurant's info in local storage
+                localStorage.setItem("favoriteRestaurant", JSON.stringify(favoriteRestaurants));
+            });
+
             console.log(typeFood);
 
             
@@ -100,6 +114,34 @@ $(document).ready(function() {
         
         ajaxCall1();
         // ajaxCall2(); 
+
+    });
+
+    // When "load favorite restaurants" button is clicked...
+    $("#load-favorite-restaurants").click(function(){
+
+        // Clears out recipe table
+        $("#restaurant-favorites-list").empty();
+
+        if (favoriteRestaurants.length){
+
+            // For each item in the "favorite restaurants" array...
+            for (var i = 0; i < favoriteRestaurants.length; i++) {
+            
+                // Add an item to the list with a link to the favorited restaurant
+                var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRestaurants[i].name).attr("href", favoriteRestaurants[i].link));
+                $("#restaurant-favorites-list").append(favoritedItem);
+            };
+
+            // Creates a button to clear favorites list & local storage when clicked...
+            var clearBtn = $("<button>").addClass("clearBtn").text("Clear Favorites").click(function(){
+                $("#restaurant-favorites-list").empty();
+                localStorage.clear();
+            });;
+
+            // And adds it to the page
+            $("#restaurant-favorites-list").append(clearBtn);
+        };
 
     });
 });
