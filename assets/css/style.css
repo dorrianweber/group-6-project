@@ -25,7 +25,7 @@ h3{
 
 footer{
     font-size: 18px;
-    color: rgb(230, 139, 3);
+    color: rgb(211, 211, 20);
     font-weight: bold;
     background: transparent;
     text-align: center;
@@ -81,20 +81,6 @@ a{
     font-style: italic;
     text-shadow: black 3px 3px;
     -webkit-text-stroke: 1px black;
-}
-
-button {
-    background-color: rgb(226, 38, 38); /* Green */
-    border: thin black 5px;
-    color: rgb(211, 211, 20);
-    font-weight: bolder;
-    margin-bottom: 3px;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-
 }
 
 #searchBar{
@@ -190,10 +176,7 @@ input{
     vertical-align: middle; 
     position: relative; 
 }
-<<<<<<< HEAD
  
-=======
->>>>>>> 7a8add3be130ad94c9c27ef8133a256c6e30ac5c
 .container{
     background-color: rgb(238, 225, 44);
     opacity: .9;
@@ -201,11 +184,7 @@ input{
     font-weight: 500;
     text-align: center;
     border: rgb(129, 27, 129) 6px double;
-<<<<<<< HEAD
     opacity: .9;
-=======
-    /* height:; */
->>>>>>> 7a8add3be130ad94c9c27ef8133a256c6e30ac5c
 }
 
 .thumbnail {
@@ -244,20 +223,66 @@ label {
     cursor: pointer;
 }
   
+.favoriteBtn{
+    background-color: rgb(226, 38, 38);
+    border: thin black 3px;
+    height: 30px;
+    width: 30px;
+    margin-left: 8px;
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./icons/star.jpg);
+    cursor: pointer;
+}
+
+#load-favorites{
+    font-size: 16px;
+    background-color: rgb(226, 38, 38);
+    border: thin black 5px;
+    font-weight: bolder;
+    padding: 15px 32px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 1;
+}
+
+#recipes-button{
+    font-size: 16px;
+    background-color: rgb(226, 38, 38);
+    border: thin black 5px;
+    font-weight: bolder;
+    padding: 15px 32px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 1;
+}
+
+#restaurants-button{
+    font-size: 16px;
+    background-color: rgb(226, 38, 38);
+    border: thin black 5px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 15px 32px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 1;
+}
+
 #restaurant-table{
     color: rgb(68, 4, 94);
     font-weight: 700;
     padding-bottom: 35px;
     line-break: loose;
-}
-
-#restaurants-button{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-#recipes-button{
-    margin-top: 20px;
-    margin-bottom: 15px;
 }
 
 .list-group{
