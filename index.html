@@ -67,25 +67,26 @@
                 <button id="recipes-button">Find Recipes</button>
             </form>
             
-             <!-- Shows the list of foods that were searched -->
+            <!-- Shows the list of foods that were searched -->
             <div class="container three-wide-column">
                 <button id="load-favorites">Load favorite recipes:</button>
                 <ul class="list-group" id="favorites-list"></ul>
             </div>
 
         </div>
+
         <br>
-        <h2>
-            Pandemic finally over? Find a nice restaurant.
-        </h2>
-        <label for="searchCity">Enter City:</label>
-        <input type="search" id="searchCity" name="c"><br>
-        
-        <button id="restaurants-button">Find Restaurants</button>
 
-        
+        <div id="restaurants-area">
+            <h2>Pandemic finally over? Find a nice restaurant.</h2>
 
-        <div class="row">
+            <label for="searchCity">Enter City:</label>
+            <input type="search" id="searchCity" name="c"><br>
+            
+            <button id="restaurants-button">Find Restaurants</button>
+        </div>
+
+        <div class="row" id="results-tables">
             <!-- Updated id to differentiate w/ other table -->
             <p id="restaurant-table"></p>
             <!-- New div for recipe table -->
@@ -98,6 +99,7 @@
         <script src="./assets/js/edamam.js"></script>
         <script src="./assets/js/zomato.js"></script>
     </div>
+    
     <footer>
         <br>
     </footer>

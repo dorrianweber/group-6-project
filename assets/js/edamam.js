@@ -77,7 +77,7 @@ function apiCall(apiURL, apiParameters, apiEnd){
             $("#recipes-table").append(tableRow);
         };
 
-        // When "favorite" button is clicked
+        // When a recipe's "favorite" button is clicked
         $(".favoriteBtn").click(function(event){
             // Saves favorited recipe's title & URL as an object in the global array of favorited recipes
             var newFavorite = {
@@ -147,4 +147,9 @@ $("#load-favorites").click(function(){
         var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
         $("#favorites-list").append(favoritedItem);
     };
+
+    // Creates a button to clear favorites
+    var clearBtn = $("<button>").addClass("clearBtn");
+
+
 });
