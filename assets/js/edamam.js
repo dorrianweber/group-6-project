@@ -6,6 +6,13 @@ var appID = "36d96c48";
 // Array for health labels
 var healthLabels = ["vegan", "vegetarian", "sugar-conscious", "peanut-free", "tree-nut-free", "alcohol-free"];
 
+// Array for favorited recipes
+var favoriteRecipes = [];
+
+if (localStorage.getItem("favoriteRecipe")){
+    favoriteRecipes = JSON.parse(localStorage.getItem("favoriteRecipe"));
+};
+
 // For-loop for health-labels
 for (var i = 0; i < healthLabels.length; i++) {
 
@@ -17,9 +24,6 @@ for (var i = 0; i < healthLabels.length; i++) {
 
         // If box is unchecked, check it!
         if ($("#" + e.target.id).val() == "no") {
-            
-            console.log("hitting second div");
-
             $("#" + e.target.id).val("yes");
         }
 
@@ -59,15 +63,33 @@ function apiCall(apiURL, apiParameters, apiEnd){
         // Logs result of API call in console
         console.log(data);
 
+        // Saves API parameters & data in local storage
+        localStorage.setItem(apiParameters, JSON.stringify(data));
+
         // Populates table with recipes & thumbnail images
         for (var i = 0; i < data.hits.length; i++){
-            var tableRow = $("<div>").addClass("row");
+            var tableRow = $("<div>");
             var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
             var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
+            var favoriteBtn = $("<button>").addClass("favoriteBtn")
 
-            tableRow.append(thumbnail, link);
+            tableRow.append(thumbnail, link, favoriteBtn);
             $("#recipes-table").append(tableRow);
         };
+
+        // When "favorite" button is clicked
+        $(".favoriteBtn").click(function(event){
+            // Saves favorited recipe's title & URL as an object in the global array of favorited recipes
+            var newFavorite = {
+                title: event.target.previousElementSibling.text,
+                link: event.target.previousElementSibling.href
+            };
+
+            favoriteRecipes.push(newFavorite);
+            
+            // Saves favorited recipe's info in local storage
+            localStorage.setItem("favoriteRecipe", JSON.stringify(favoriteRecipes));
+        });
     });
 };
 
@@ -112,5 +134,17 @@ $("#recipes-button").click(function(event){
     else {
         var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please choose how many results you would like");
         $("#userInputs").append(errorMessage);
+    };
+});
+
+// When "load favorite recipes" button is clicked...
+$("#load-favorites").click(function(){
+
+    // For each item in the "favorite recipes" array...
+    for (var i = 0; i < favoriteRecipes.length; i++) {
+    
+        // Add an item to the list with a link to the favorited recipe
+        var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
+        $("#favorites-list").append(favoritedItem);
     };
 });
