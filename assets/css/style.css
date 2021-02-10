@@ -7,29 +7,49 @@ h1{
 }
 
 h2{
-    color: black;
-    font-size: 20px;
+    color: green;
+    font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: bold;
-    text-shadow: black 1px 1px;
-    margin-bottom: 1px;
+    text-shadow: black 2px 1px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+
 }
 
 h3{
     color: black;
+    
 }
 
 footer{
-    color: black;
+    font-size: 18px;
+    color: rgb(230, 139, 3);
     font-weight: bold;
-    border: black 2px double;
     background: transparent;
     text-align: center;
-    animation: colorchange 10s infinite alternate;
     text-shadow: black 2px 2px;
-
+    
 }
+
+.creators{
+    text-align: center;
+    text-shadow: black 1px 1px;
+    animation: colorchange 10s infinite alternate;
+}
+
+#row{
+    background: transparent;
+}
+
+a{
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+    text-shadow: black 1px 1px;
+    animation: colorchangeres 5s infinite alternate;
+    text-decoration: none;
+}   
 
     @keyframes colorchange {
         0%   {color: red;}
@@ -38,6 +58,11 @@ footer{
         60%  {color: green;}
         80%  {color: blue;}
         100% {color: purple;}
+    }
+
+    @keyframes colorchangeres {
+        from   {color: rgb(12, 124, 12);}
+         to {color: rgb(131, 13, 199);}
     }
 
 .title{
@@ -70,9 +95,7 @@ button {
     font-size: 16px;
     cursor: pointer;
 
-  }
-
-
+}
 
 #searchBar{
     border: 2px solid rgb(226, 38, 38);
@@ -87,7 +110,7 @@ button {
     border: 2px solid rgb(226, 38, 38);
 }
 
-body{
+html, body{
     height: 100vh;
     background-image: url(https://www.inquirer.com/resizer/X2e2KeAt84ebZGKcGVkuNrJPjmg=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/XSXXBDNPURCDTK3QO2F7GFYQUE.jpg);
     background-attachment: fixed;
@@ -135,7 +158,7 @@ input{
     vertical-align: text-bottom;
     position: relative;
 }
-
+ 
 .container{
     background-color: rgb(238, 225, 44);
     font-size: x-large;
@@ -143,7 +166,6 @@ input{
     text-align: center;
     border: rgb(129, 27, 129) 6px double;
     opacity: .9;
-    /* height:; */
 }
 
 .thumbnail {
@@ -172,39 +194,32 @@ label {
 }
 
 #errorMessage {
-    color: white;
+    font-weight: bolder;
+    color: darkred;
     padding: 10px 32px;
     text-align: center;
-    text-decoration: none;
+    text-decoration: overline  3px;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
 }
   
-<<<<<<< HEAD
 #restaurant-table{
-    border-style: dashed;
-    border-color: black;
+    color: rgb(68, 4, 94);
+    font-weight: 700;
+    padding-bottom: 35px;
+    line-break: loose;
 }
-=======
->>>>>>> 327cb83788acf222c302d6fa1f54eddcd661ab73
-a{
-    color:rgb(226, 38, 38);
-    text-align: center;
-
-}   
 
 #restaurants-button{
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-
 #recipes-button{
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
-<<<<<<< HEAD
-=======
 
 .list-group{
     color: blue;
 }
->>>>>>> 327cb83788acf222c302d6fa1f54eddcd661ab73
