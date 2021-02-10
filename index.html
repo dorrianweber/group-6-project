@@ -35,14 +35,14 @@
             <h2> Don't feel like going out? Try a new recipe.</h2>
 
             <!-- Keyword search bar -->
-            <label for="searchBar">What are you hungry for?</label>
-            <input type="search" autocomplete="off" id="searchBar" name="q">
+            <label for="searchBar">Enter a type of food or restaurant: </label>
+            <input type="search" autocomplete="off" id="searchBar" name="q"  placeholder="Whatchya' hungry for?">
 
             <br>
 
             <!-- Number of results desired -->
             <label for="numberResults">How many results?</label>
-            <input type="number" id="numberResults" min="1" max="20">
+            <input type="number" id="numberResults" min="1" max="20" placeholder="0">
 
             <!-- Selectors for health labels (6) -->
             <form class="health-labels">
@@ -64,32 +64,42 @@
                 <input type="checkbox" id="sugar-conscious" name="sugar-conscious">
                 <label for="sugar-conscious"> Sugar Conscious</label><br>
                 
-                <button id="recipes-button">Find Recipes</button>
+                <button id="recipes-button"> Find Recipes</button>
             </form>
             
-             <!-- Shows the list of foods that were searched -->
+             <!-- Shows the list of recipes that were searched -->
             <div class="container three-wide-column">
+<<<<<<< HEAD
+                <p>search food: </p>
+                <ul class="list-group" id="food-list"></ul>
+=======
                 <button id="load-favorites">Load favorite recipes:</button>
                 <ul class="list-group" id="favorites-list"></ul>
+>>>>>>> 7a8add3be130ad94c9c27ef8133a256c6e30ac5c
+            </div>
+            
+            <div class="row">
+                <!-- New div for recipe table -->
+                <p id="recipes-table" style="text-align: left;"></p>
             </div>
 
         </div>
         <br>
-        <h2>
-            Pandemic finally over? Find a nice restaurant.
-        </h2>
+            <h2>
+                Pandemic finally over?  Find a nice restaurant.
+            </h2>
+
         <label for="searchCity">Enter City:</label>
-        <input type="search" id="searchCity" name="c"><br>
+        <input type="search" id="searchCity" name="c" placeholder="Where ya' from?">
+        <br>
         
         <button id="restaurants-button">Find Restaurants</button>
-
-        
 
         <div class="row">
             <!-- Updated id to differentiate w/ other table -->
             <p id="restaurant-table"></p>
             <!-- New div for recipe table -->
-            <p id="recipes-table" style="text-align: left;"></p>
+            <p id="recipes-table"></p>
         </div>
         
         <!-- Link for jQuery -->
@@ -99,8 +109,12 @@
         <script src="./assets/js/zomato.js"></script>
     </div>
     <footer>
-        <br>
+        The brains:     
+                   <a href="" class="creators">Reynaldo Bracamonte,  </a>
+                   <a href="" class="creators">Jephunney Nduati,  </a>
+                   <a href="" class="creators">Dorrian Webber,  </a>
+                   <a href="https://github.com/acombs801?tab=repositories" class="creators">Adrian combs,  </a>
+                   <a href="" class="creators">Petr Constantinov.</a>
     </footer>
 </body>
-
 </html>
