@@ -50,6 +50,12 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: 0.35s;
+
+    border-radius: 100px;
+    border: 1px solid #a64747;
+    border-top: #ee6969;
+    border-bottom: 3px solid #e64747;
+
   }
   button:hover {
   background-color:white;
@@ -77,7 +83,14 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    -webkit-background-size: cover
 }
+ .health-labels{
+    text-align: left;
+    width: 600px;
+    margin: 0 auto;
+    padding-left: 150;
+ }
 
 input{
     height: 30px;
