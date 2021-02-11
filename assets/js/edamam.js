@@ -69,32 +69,16 @@ function apiCall(apiURL, apiParameters, apiEnd){
             $("#recipes-table").append(tableRow);
         };
 
-<<<<<<< HEAD
-        // When "favorite" button is clicked
-=======
         // When a recipe's "favorite" button is clicked
-<<<<<<< HEAD
         $(".favoriteRecipeBtn").click(function(event){
-=======
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
-        $(".favoriteBtn").click(function(event){
->>>>>>> 8d46e5b203378b194065ab3f4808a84636107f98
             // Saves favorited recipe's title & URL as an object in the global array of favorited recipes
-            var newRecipeFavorite = {
+            var newFavorite = {
                 title: event.target.previousElementSibling.text,
                 link: event.target.previousElementSibling.href
             };
 
-<<<<<<< HEAD
-            favoriteRecipes.push(newRecipeFavorite);
-=======
             favoriteRecipes.push(newFavorite);
-<<<<<<< HEAD
 
-=======
->>>>>>> 8d46e5b203378b194065ab3f4808a84636107f98
-            
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
             // Saves favorited recipe's info in local storage
             localStorage.setItem("favoriteRecipe", JSON.stringify(favoriteRecipes));
         });
@@ -107,13 +91,10 @@ $("#recipes-button").click(function(event){
     event.preventDefault();
     // Clears out recipe table
     $("#recipes-table").empty();
-<<<<<<< HEAD
 
     // Clears error message if it exists
     $(".errorMessage").remove();
 
-=======
->>>>>>> 8d46e5b203378b194065ab3f4808a84636107f98
     // Starting point of API call URL
     var apiURL = endpoint;
     // Parameter section for API URL
@@ -126,7 +107,6 @@ $("#recipes-button").click(function(event){
     if (numberResults !== "") {
         // Sets ingredient keyword
         var ingKeyword = $("#searchBar").val();
-<<<<<<< HEAD
 
         if (ingKeyword === "") {
             var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please specify a type of food");
@@ -134,8 +114,6 @@ $("#recipes-button").click(function(event){
             return;
         };
 
-=======
->>>>>>> 8d46e5b203378b194065ab3f4808a84636107f98
         // Updates API parameters section to include ingredient keyword
         apiParameters = apiParameters + ingKeyword;
         // Updates API parameters section to include number of results
@@ -152,8 +130,6 @@ $("#recipes-button").click(function(event){
         return;
     };
 });
-<<<<<<< HEAD
-=======
 
 // When "load favorite recipes" button is clicked...
 $("#load-favorite-recipes").click(function(){
@@ -181,16 +157,4 @@ $("#load-favorite-recipes").click(function(){
         // And adds it to the page
         $("#recipe-favorites-list").append(clearBtn);
     };
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
-
-// When "load favorite recipes" button is clicked...
-$("#load-favorites").click(function(){
-
-    // For each item in the "favorite recipes" array...
-    for (var i = 0; i < favoriteRecipes.length; i++) {
-
-        // Add an item to the list with a link to the favorited recipe
-        var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
-        $("#favorites-list").append(favoritedItem);
-    };
-}); 
+});
