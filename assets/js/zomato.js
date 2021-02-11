@@ -72,22 +72,21 @@ $(document).ready(function() {
                 var link = $("<a>").attr("href", res.restaurants[i].restaurant.events_url).text(res.restaurants[i].restaurant.name);
                 var address = res.restaurants[i].restaurant.location.address;
                 var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
-                var favoriteBtn = $("<button>").addClass("favoriteBtn").text("☆");
+                var favoriteResBtn = $("<button>").addClass("favoriteResBtn").text("☆");
 
-                tableRow.append(link, " - ", address, " - Rating ", rating, favoriteBtn);
+                tableRow.append(link, " - ", address, " - Rating ", rating, favoriteResBtn);
                 $("#restaurant-table").append(tableRow);
             };
 
             // When a restaurant's "favorite" button is clicked
-            $(".favoriteBtn").click(function(event){
-
+            $(".favoriteResBtn").click(function(event){
                 // Saves favorited restaurant's title & link as an object in the global array of favorited restaurants
-                var newFavorite = {
+                var newResFavorite = {
                     name: event.target.previousElementSibling.text,
                     link: event.target.previousElementSibling.href
                 };
     
-                favoriteRestaurants.push(newFavorite);
+                favoriteRestaurants.push(newResFavorite);
                 
                 // Saves favorited restaurant's info in local storage
                 localStorage.setItem("favoriteRestaurant", JSON.stringify(favoriteRestaurants));
@@ -139,8 +138,8 @@ $(document).ready(function() {
             for (var i = 0; i < favoriteRestaurants.length; i++) {
             
                 // Add an item to the list with a link to the favorited restaurant
-                var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRestaurants[i].name).attr("href", favoriteRestaurants[i].link));
-                $("#restaurant-favorites-list").append(favoritedItem);
+                var favoritedRes = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRestaurants[i].name).attr("href", favoriteRestaurants[i].link));
+                $("#restaurant-favorites-list").append(favoritedRes);
             };
 
             // Creates a button to clear favorites list & local storage when clicked...
