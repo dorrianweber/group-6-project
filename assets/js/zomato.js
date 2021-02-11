@@ -14,13 +14,18 @@ $(document).ready(function() {
     //var tableBody = document.getElementById('restaurant-table');
     
     function ajaxCall1(){
+        // Sets city name to what user inputs in search bar
         var cityName = $("#searchCity").val();
-        if(cityName===""){
-            var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please enter a city");
+
+        // Creates an error message if user tries to search for restaurants without specifying a city
+        if(cityName==="") {
+            var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please enter a city");
             $("#userInputs").append(errorMessage);
             return;
         }
+
         console.log("cityName", cityName);
+
         $.ajax({
             url: "https://developers.zomato.com/api/v2.1/locations?query=" + cityName,
             method: "GET",
@@ -28,10 +33,9 @@ $(document).ready(function() {
                 "user-key": "81567c6d0a81c709e1edf53310578e0c",
                 "Content-type": "application/json"
             },
-            
-    //     // When call is finished...
-        }).done(function (res1){
-            
+        })
+
+        .done(function (res1){
             var x = res1.location_suggestions[0].entity_id;
             console.log("res1: ", res1);
             console.log("entity ID: ", res1.location_suggestions);
@@ -61,27 +65,28 @@ $(document).ready(function() {
             // Log the information in the console
             console.log("Food response: ", res);
             
+            // Populate page with searched restaurant information
             for (var i = 0; i < res.restaurants.length; i++){
                 
                 var tableRow = $("<div>");
                 var link = $("<a>").attr("href", res.restaurants[i].restaurant.events_url).text(res.restaurants[i].restaurant.name);
                 var address = res.restaurants[i].restaurant.location.address;
                 var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
-                var favoriteBtn = $("<button>").addClass("favoriteBtn").text("☆");
+                var favoriteResBtn = $("<button>").addClass("favoriteResBtn").text("☆");
 
-                tableRow.append(link, " - ", address, " - Rating ", rating, favoriteBtn);
+                tableRow.append(link, " - ", address, " - Rating ", rating, favoriteResBtn);
                 $("#restaurant-table").append(tableRow);
             };
 
-            $(".favoriteBtn").click(function(event){
-
-                // Saves favorited restaurant's title & link as an object in the global array of favorited recipes
-                var newFavorite = {
+            // When a restaurant's "favorite" button is clicked
+            $(".favoriteResBtn").click(function(event){
+                // Saves favorited restaurant's title & link as an object in the global array of favorited restaurants
+                var newResFavorite = {
                     name: event.target.previousElementSibling.text,
                     link: event.target.previousElementSibling.href
                 };
     
-                favoriteRestaurants.push(newFavorite);
+                favoriteRestaurants.push(newResFavorite);
                 
                 // Saves favorited restaurant's info in local storage
                 localStorage.setItem("favoriteRestaurant", JSON.stringify(favoriteRestaurants));
@@ -89,29 +94,33 @@ $(document).ready(function() {
 
             console.log(typeFood);
 
-            
             //var foodInputEl = $("#searchBar");
 
             var foodListEl = $('#food-list');
-           ;
-            var printCity = function () {
-            var listEl = $('<li>');
-            var listDetail = typeFood;
-            console.log("food type: ", typeFood)
-            listEl.addClass('list-group-item').text(listDetail);
-            listEl.appendTo(foodListEl);
+
+            var printCity = function(){
+                var listEl = $('<li>');
+                var listDetail = typeFood;
+                console.log("food type: ", typeFood)
+                listEl.addClass('list-group-item').text(listDetail);
+                listEl.appendTo(foodListEl);
             };
+
             printCity(typeFood)
         });  
     };
     
     // When the "restaurants button" is clicked...
     $("#restaurants-button").click(function(){
-        // Run "ajaxCall" function
         //add if statement, check if blank, message enter city and type of food
         
+        // Clears restaurant information from last search
         $("#restaurant-table").empty();
-        
+
+        // Clears error message if it exists
+        $(".errorMessage").remove();
+
+        // Run "ajaxCall" function
         ajaxCall1();
         // ajaxCall2(); 
 
@@ -129,8 +138,8 @@ $(document).ready(function() {
             for (var i = 0; i < favoriteRestaurants.length; i++) {
             
                 // Add an item to the list with a link to the favorited restaurant
-                var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRestaurants[i].name).attr("href", favoriteRestaurants[i].link));
-                $("#restaurant-favorites-list").append(favoritedItem);
+                var favoritedRes = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRestaurants[i].name).attr("href", favoriteRestaurants[i].link));
+                $("#restaurant-favorites-list").append(favoritedRes);
             };
 
             // Creates a button to clear favorites list & local storage when clicked...

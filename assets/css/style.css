@@ -245,7 +245,7 @@ label {
     font-family: sans-serif;
 }
 
-#errorMessage {
+.errorMessage {
     font-weight: bolder;
     color: darkred;
     padding: 10px 32px;

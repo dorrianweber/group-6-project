@@ -22,12 +22,6 @@ for (var i = 0; i < healthLabels.length; i++) {
 
         // If box is unchecked, check it!
         if ($("#" + e.target.id).val() == "no") {
-<<<<<<< HEAD
-
-            console.log("hitting second div");
-
-=======
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
             $("#" + e.target.id).val("yes");
         }
 
@@ -66,31 +60,17 @@ function apiCall(apiURL, apiParameters, apiEnd){
 
         // Populates table with recipes & thumbnail images
         for (var i = 0; i < data.hits.length; i++){
-<<<<<<< HEAD
-            var tableRow = $("<div>").addClass("row");
             var tableRow = $("<div>");
             var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
             var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
-            var favoriteBtn = $("<button>").addClass("favoriteBtn")
+            var favoriteRecipeBtn = $("<button>").addClass("favoriteRecipeBtn").text("☆");
 
-            tableRow.append(thumbnail, link);
-=======
-            var tableRow = $("<div>");
-            var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
-            var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
-            var favoriteBtn = $("<button>").addClass("favoriteBtn").text("☆");
-
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
-            tableRow.append(thumbnail, link, favoriteBtn);
+            tableRow.append(thumbnail, link, favoriteRecipeBtn);
             $("#recipes-table").append(tableRow);
         };
 
-<<<<<<< HEAD
-        // When "favorite" button is clicked
-=======
         // When a recipe's "favorite" button is clicked
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
-        $(".favoriteBtn").click(function(event){
+        $(".favoriteRecipeBtn").click(function(event){
             // Saves favorited recipe's title & URL as an object in the global array of favorited recipes
             var newFavorite = {
                 title: event.target.previousElementSibling.text,
@@ -98,11 +78,7 @@ function apiCall(apiURL, apiParameters, apiEnd){
             };
 
             favoriteRecipes.push(newFavorite);
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
             // Saves favorited recipe's info in local storage
             localStorage.setItem("favoriteRecipe", JSON.stringify(favoriteRecipes));
         });
@@ -115,6 +91,10 @@ $("#recipes-button").click(function(event){
     event.preventDefault();
     // Clears out recipe table
     $("#recipes-table").empty();
+
+    // Clears error message if it exists
+    $(".errorMessage").remove();
+
     // Starting point of API call URL
     var apiURL = endpoint;
     // Parameter section for API URL
@@ -127,6 +107,13 @@ $("#recipes-button").click(function(event){
     if (numberResults !== "") {
         // Sets ingredient keyword
         var ingKeyword = $("#searchBar").val();
+
+        if (ingKeyword === "") {
+            var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please specify a type of food");
+            $("#userInputs").append(errorMessage);
+            return;
+        };
+
         // Updates API parameters section to include ingredient keyword
         apiParameters = apiParameters + ingKeyword;
         // Updates API parameters section to include number of results
@@ -135,15 +122,14 @@ $("#recipes-button").click(function(event){
         // Calls Edamam API
         apiCall(apiURL, apiParameters, apiEnd);
     }
-    
+
     // Otherwise, displays an error message
     else {
-        var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please choose how many results you would like");
+        var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please choose how many results you would like");
         $("#userInputs").append(errorMessage);
+        return;
     };
 });
-<<<<<<< HEAD
-=======
 
 // When "load favorite recipes" button is clicked...
 $("#load-favorite-recipes").click(function(){
@@ -157,8 +143,8 @@ $("#load-favorite-recipes").click(function(){
         for (var i = 0; i < favoriteRecipes.length; i++) {
         
             // Add an item to the list with a link to the favorited recipe
-            var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
-            $("#recipe-favorites-list").append(favoritedItem);
+            var favoritedRecipeItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
+            $("#recipe-favorites-list").append(favoritedRecipeItem);
         };
 
         // Creates a button to clear favorites list & local storage when clicked...
@@ -171,16 +157,4 @@ $("#load-favorite-recipes").click(function(){
         // And adds it to the page
         $("#recipe-favorites-list").append(clearBtn);
     };
->>>>>>> 9bf717f7bb74660997b7a19302159aa40294ce1d
-
-// When "load favorite recipes" button is clicked...
-$("#load-favorites").click(function(){
-
-    // For each item in the "favorite recipes" array...
-    for (var i = 0; i < favoriteRecipes.length; i++) {
-
-        // Add an item to the list with a link to the favorited recipe
-        var favoritedItem = $("<li>").append($("<a>").addClass("favorited-items").text(favoriteRecipes[i].title).attr("href", favoriteRecipes[i].link));
-        $("#favorites-list").append(favoritedItem);
-    };
-}); 
+});
