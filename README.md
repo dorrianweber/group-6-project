@@ -23,8 +23,8 @@ The team rose to the challenge and were able to overcome obstacles to complete t
 ## Team Members
 
 Team members and role
-1. Reynaldo Bracamonte: -- Zomato API & corresponding JS file
-2. Dorrian Weber -- Edamam API & corresponding JS file
+1. Reynaldo Bracamonte -- Zomato API & corresponding JS file
+2. Dorrian Weber -- Edamam API & corresponding JS file; "favoriting" function (local storage) for recipes & restaurants
 3. Adrian Combs -- CSS file (Bulma framework)
 4. Jephunney Nduati -- CSS file (Bulma framework)
 5. Petr Constantinov -- CSS file (Bulma framework)

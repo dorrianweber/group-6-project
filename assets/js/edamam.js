@@ -99,6 +99,9 @@ $("#recipes-button").click(function(event){
     // Clears out recipe table
     $("#recipes-table").empty();
 
+    // Clears error message if it exists
+    $("#errorMessage").remove();
+
     // Starting point of API call URL
     var apiURL = endpoint;
 
@@ -131,6 +134,7 @@ $("#recipes-button").click(function(event){
     else {
         var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please choose how many results you would like");
         $("#userInputs").append(errorMessage);
+        return;
     };
 });
 
