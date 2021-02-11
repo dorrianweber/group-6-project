@@ -14,8 +14,7 @@ Creating a site for an end user to search for restaurants or recipes.
 
 1. User Story - hungry person looking for a specific food. You have a choice to find a restaurant and pick up some food or find a recipe and make your own. Named the site "A taste from home".
 2. Project description - utilized 2 API's to get information. Edamam for recipe information and Zomato for the restaurant information. Combined with the Bulma CSS framework and create a working site.
-<!-- Stretch goals are things you set out to accomplish in the project if you have time after achieving the main objectives -->
-3. Stretch goals - ~~to learn how to use API's, add them together on 1 site, and utilize a CSS framework other than Bootstrap.~~
+3. Goals - ~~to learn how to use API's, add them together on 1 site, and utilize a CSS framework other than Bootstrap.~~
 
 The API's, the different framework, and working with a team in a single repository posed a challenge. Challenges of any project start with getting to know team members, assigning roles, assigning tasks, and then remembering to communicate when changes were pushed to the repository. 
 
@@ -30,7 +29,7 @@ Team members and role
 4. Jephunney Nduati
 5. Petr Constantinov
 
-
+<!-- UPDATE SCREENSHOT BEFORE SUBMITTING -->
 ## Screenshot
 ![screenshot of working application](./assets/Images/A-taste-from-home.JPG)
 
