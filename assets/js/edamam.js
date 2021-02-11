@@ -100,7 +100,7 @@ $("#recipes-button").click(function(event){
     $("#recipes-table").empty();
 
     // Clears error message if it exists
-    $("#errorMessage").remove();
+    $(".errorMessage").remove();
 
     // Starting point of API call URL
     var apiURL = endpoint;
@@ -120,6 +120,12 @@ $("#recipes-button").click(function(event){
         // Sets ingredient keyword
         var ingKeyword = $("#searchBar").val();
 
+        if (ingKeyword === "") {
+            var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please specify a type of food");
+            $("#userInputs").append(errorMessage);
+            return;
+        };
+
         // Updates API parameters section to include ingredient keyword
         apiParameters = apiParameters + ingKeyword;
 
@@ -129,10 +135,10 @@ $("#recipes-button").click(function(event){
         // Calls Edamam API
         apiCall(apiURL, apiParameters, apiEnd);
     }
-    
+
     // Otherwise, displays an error message
     else {
-        var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please choose how many results you would like");
+        var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please choose how many results you would like");
         $("#userInputs").append(errorMessage);
         return;
     };

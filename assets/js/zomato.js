@@ -18,8 +18,8 @@ $(document).ready(function() {
         var cityName = $("#searchCity").val();
 
         // Creates an error message if user tries to search for restaurants without specifying a city
-        if(cityName===""){
-            var errorMessage = $("<h4>").attr("id", "errorMessage").text("Please enter a city");
+        if(cityName==="") {
+            var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please enter a city");
             $("#userInputs").append(errorMessage);
             return;
         }
@@ -119,8 +119,8 @@ $(document).ready(function() {
         $("#restaurant-table").empty();
 
         // Clears error message if it exists
-        $("#errorMessage").remove();
-        
+        $(".errorMessage").remove();
+
         // Run "ajaxCall" function
         ajaxCall1();
         // ajaxCall2(); 
