@@ -72,7 +72,11 @@ $(document).ready(function() {
                 var link = $("<a>").attr("href", res.restaurants[i].restaurant.events_url).text(res.restaurants[i].restaurant.name);
                 var address = res.restaurants[i].restaurant.location.address;
                 var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
+<<<<<<< HEAD
                 var favoriteResBtn = $("<button>").addClass("favoriteResBtn");
+=======
+                var favoriteResBtn = $("<button>").addClass("favoriteResBtn").text("☆");
+>>>>>>> 559608f0ae7e4d596a229548a01bf915c0adfaac
 
                 tableRow.append(link, " - ", address, " - Rating ", rating, favoriteResBtn);
                 $("#restaurant-table").append(tableRow);

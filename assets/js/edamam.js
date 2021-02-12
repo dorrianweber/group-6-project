@@ -170,5 +170,4 @@ $("#load-favorite-recipes").click(function(){
         // And adds it to the page
         $("#recipe-favorites-list").append(clearBtn);
     };
-
 });
