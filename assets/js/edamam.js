@@ -150,6 +150,7 @@ $("#load-favorite-recipes").click(function(){
     // Clears out recipe table
     $("#recipe-favorites-list").empty();
 
+    // If you have any recipes favorited...
     if (favoriteRecipes.length){
 
         // For each item in the "favorite recipes" array...
@@ -169,5 +170,12 @@ $("#load-favorite-recipes").click(function(){
 
         // And adds it to the page
         $("#recipe-favorites-list").append(clearBtn);
-    };
+    }
+
+    else {
+        var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please specify a type of food");
+        $("#userInputs").append(errorMessage);
+        return;
+
+    }
 });
