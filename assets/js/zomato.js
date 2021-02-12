@@ -72,7 +72,7 @@ $(document).ready(function() {
                 var link = $("<a>").attr("href", res.restaurants[i].restaurant.events_url).text(res.restaurants[i].restaurant.name);
                 var address = res.restaurants[i].restaurant.location.address;
                 var rating = res.restaurants[i].restaurant.user_rating.aggregate_rating;
-                var favoriteResBtn = $("<button>").addClass("favoriteResBtn").text("☆").attr("style", "margin-left: 10px");
+                var favoriteResBtn = $("<button>").addClass("favoriteResBtn");
 
                 tableRow.append(link, " - ", address, " - Rating ", rating, favoriteResBtn);
                 $("#restaurant-table").append(tableRow);
@@ -155,4 +155,3 @@ $(document).ready(function() {
 
     });
 });
-

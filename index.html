@@ -1,9 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--bulma doesnt have a set of icons, recommends we use fontawesome-->
-    <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Bulma doesnt have a set of icons, recommends we use FontAwesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Link for Bulma -->
@@ -12,18 +11,10 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>A Taste From Home</title>
 </head>
+
 <body>
     <navbar> 
         <h1>
-           <!-- <style>
-                a.btn{
-                   background-image: url(1_dark.rgb);
-                display: block; 
-                }
-                a.btn:hover {
-                 background-image: url(1_light.rgb);
-                }
-            </style>-->
             <div class="titlebox">
                 <div class="title">
                     <span style="color: rgb(226, 38, 38)"> A </span> 
@@ -37,14 +28,18 @@
             </div> 
         </h1>
     </navbar>
+
     <div class="container three-wide-column">
+
         <div id="userInputs">
             <h2> Don't feel like going out? Try a new recipe.</h2>
+
             <!-- Keyword search bar -->
             <label for="searchBar">Enter a type of food or restaurant: </label>
             <input type="search" autocomplete="off" id="searchBar" name="q"  placeholder="Whatchya' hungry for?">
 
             <br>
+
             <!-- Number of results desired -->
             <label for="numberResults">How many results?</label>
             <input type="number" id="numberResults" min="1" max="20" placeholder="0">
@@ -53,53 +48,60 @@
             <form class="health-labels">
                 <input type="checkbox" id="vegan" name="vegan">
                 <label for="vegan"> Vegan</label><br>
+
                 <input type="checkbox" id="vegetarian" name="vegetarian">
                 <label for="vegetarian"> Vegetarian</label><br>
+
                 <input type="checkbox" id="peanut-free" name="peanut-free">
                 <label for="peanut-free"> Peanut-free</label><br>
+
                 <input type="checkbox" id="tree-nut-free" name="tree-nut-free">
                 <label for="tree-nut-free"> Tree Nut-free</label><br>
+
                 <input type="checkbox" id="alcohol-free" name="alcohol-free">
                 <label for="alcohol-free"> Alcohol-free</label><br>
+
                 <input type="checkbox" id="sugar-conscious" name="sugar-conscious">
                 <label for="sugar-conscious"> Sugar Conscious</label><br>
-                
-                <button id="recipes-button"> Find Recipes</button>
             </form>
-            
-            <!-- Area containing favorited recipes & restaurants -->
-            <div id="favorites-section" class="container three-wide-column">
+
+                <button id="recipes-button"> Find Recipes</button>
+                <button id="load-favorite-recipes">Load favorite recipes:</button>
+
+        
                 <!-- A column for recipes... -->
-                <div class="container three-wide-column">
-                    <button id="load-favorite-recipes">Load favorite recipes:</button>
-                    <ul class="list-group" id="recipe-favorites-list"></ul>
+                <div class="content three-wide-column">
+                    <ol class="list-group" id="recipe-favorites-list"></ol>
                 </div>
                 
-                <!-- And a column for restaurants... -->
-                <div class="container three-wide-column">
-                    <button id="load-favorite-restaurants">Load favorite restaurants:</button>
-                    <ul class="list-group" id="restaurant-favorites-list"></ul>
+                
+                <div class="row">
+                    <!-- New div for recipe table -->
+                    <p id="recipes-table"></p>
                 </div>
-            </div>
-            
-            <div class="row">
-                <!-- New div for recipe table -->
-                <p id="recipes-table" style="text-align: left;"></p>
-            </div>
 
         </div>
 
         <br>
 
         <div id="restaurants-area">
-            <h2>Pandemic finally over? Find a nice restaurant.</h2>
+            <h2>
+                Pandemic finally over? Find a nice restaurant.
+            </h2>
 
             <label for="searchCity">Enter City:</label>
             <input type="search" id="searchCity" name="c"><br>
             
-            <button id="restaurants-button">Find Restaurants</button>
         </div>
 
+        <button id="restaurants-button">Find Restaurants</button>
+        <button id="load-favorite-restaurants">Load favorite restaurants:</button>
+
+            <!-- A column for restaurants... -->
+        <div class="content three-wide-column">
+            <ol class="list-group" id="restaurant-favorites-list"></ol>
+        </div>
+                        
         <div class="row" id="results-tables">
             <!-- Updated id to differentiate w/ other table -->
             <p id="restaurant-table"></p>
@@ -116,11 +118,19 @@
 
     <footer>
         The brains:     
+<<<<<<< HEAD
+                   <a href="https://github.com/reybrac/reybrac.github.io" class="creators">Reynaldo Bracamonte,  </a>
+                   <a href="https://www.linkedin.com/in/jnduati/" class="creators">Jephunney Nduati,  </a>
+                   <a href="https://github.com/dorrianweber" class="creators">Dorrian Weber,  </a>
+                   <a href="https://github.com/acombs801" class="creators">Adrian Combs,  </a>
+                   <a href="https://github.com/caysper28" class="creators">Petr Constantinov</a>
+=======
                    <a href="" class="creators">Reynaldo Bracamonte,  </a>
                    <a href="" class="creators">Jephunney Nduati,  </a>
                    <a href="" class="creators">Dorrian Weber,  </a>
                    <a href="https://github.com/acombs801?tab=repositories" class="creators">Adrian Combs,  </a>
                    <a href="" class="creators">Petr Constantinov</a>
+>>>>>>> 559608f0ae7e4d596a229548a01bf915c0adfaac
     </footer>
 </body>
 </html>
