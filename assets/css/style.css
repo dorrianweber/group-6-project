@@ -25,7 +25,7 @@ h3{
 
 footer{
     font-size: 18px;
-    color: rgb(230, 139, 3);
+    color: green;
     font-weight: bold;
     background: transparent;
     text-align: center;
@@ -47,8 +47,7 @@ a{
     font-size: 20px;
     color:rgb(0, 0, 0);
     text-shadow: black 1px 1px;
-    animation: colorchangeres 5s infinite alternate;
-    text-decoration: none;
+    animation: colorchangeres 3s infinite alternate;
 }   
 
     @keyframes colorchange {
@@ -61,8 +60,8 @@ a{
     }
 
     @keyframes colorchangeres {
-        from   {color: rgb(12, 124, 12);}
-         to {color: rgb(131, 13, 199);}
+        from   {color: red;}
+         to {color: purple;}
     }
 
 .title{
@@ -122,7 +121,6 @@ input{
     cursor: pointer;
     width: 20px;
     height: 20px;
-    vertical-align: bottom;
     bottom: 1px;
     vertical-align: text-bottom;
     position: relative;
@@ -132,7 +130,6 @@ input{
     width: 20px;
     height: 20px;
     font-family: sans-serif;
-    vertical-align: bottom;
     vertical-align: text-bottom;
     position: relative;
     cursor: pointer;
@@ -144,7 +141,6 @@ input{
     width: 20px;
     height: 20px;
     font-family: sans-serif;
-    vertical-align: bottom;
     vertical-align: text-bottom;
     position: relative;
     cursor: pointer;
@@ -187,7 +183,6 @@ input{
  
 .container{
     background-color: rgb(238, 225, 44);
-    opacity: .9;
     font-size: x-large;
     font-weight: 500;
     text-align: center;
@@ -198,7 +193,9 @@ input{
 .thumbnail {
     width: 100px;
     height: 100px;
-    margin-right: 5px;
+    margin-right: 25px;
+    vertical-align: middle;
+    margin-bottom: 25px;
 }
 
 label {
@@ -250,7 +247,6 @@ label {
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 5px;
-    opacity: 1;
     text-shadow: black 1px 1px;
 }
 
@@ -267,8 +263,11 @@ label {
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
-    opacity: 1;
     text-shadow: black 1px 1px;
+}
+#recipes-table{
+    align-items: center;
+    text-align: center;
 }
 
 #restaurants-button{
@@ -283,7 +282,6 @@ label {
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
-    opacity: 1;
     text-shadow: black 1px 1px;
 }
 
@@ -305,7 +303,7 @@ label {
 }
 
 #restaurant-table{
-    color: rgb(68, 4, 94);
+    color: green;
     font-weight: 700;
     padding-bottom: 35px;
     line-break: normal;
@@ -356,4 +354,7 @@ label {
     height: 25px;
     width: 25px;
     margin-left: 8px;
+    border-radius: 30%;
+    border:black solid 2px;
+    box-shadow: black 2px 2px;
 }
