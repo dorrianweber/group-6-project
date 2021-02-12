@@ -63,7 +63,7 @@ function apiCall(apiURL, apiParameters, apiEnd){
             var tableRow = $("<div>");
             var link = $("<a>").attr("href", data.hits[i].recipe.url).text(data.hits[i].recipe.label);
             var thumbnail = $("<img>").attr("src", data.hits[i].recipe.image).attr("alt", "Photo of " + data.hits[i].recipe.label).addClass("thumbnail");
-            var favoriteRecipeBtn = $("<button>").addClass("favoriteRecipeBtn").text("☆");
+            var favoriteRecipeBtn = $("<button>").addClass("favoriteRecipeBtn").text("☆").attr("style", "margin-left: 10px");
 
             tableRow.append(thumbnail, link, favoriteRecipeBtn);
             $("#recipes-table").append(tableRow);
@@ -137,6 +137,7 @@ $("#load-favorite-recipes").click(function(){
     // Clears out recipe table
     $("#recipe-favorites-list").empty();
 
+    // If you have any recipes favorited...
     if (favoriteRecipes.length){
 
         // For each item in the "favorite recipes" array...
@@ -156,5 +157,12 @@ $("#load-favorite-recipes").click(function(){
 
         // And adds it to the page
         $("#recipe-favorites-list").append(clearBtn);
-    };
+    }
+
+    else {
+        var errorMessage = $("<h4>").attr("class", "errorMessage").text("Please specify a type of food");
+        $("#userInputs").append(errorMessage);
+        return;
+
+    }
 });
