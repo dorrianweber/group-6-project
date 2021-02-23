@@ -2,11 +2,11 @@
 
 ## Table of Contents
 1. [General Info](#general-info)
-2. [Screenshot](##Screenshot)
-3. [Team Members](##Team-members)
-4. [Installation & Deployment](##Installation-Deployment)
-5. [Future Scope](##Future_scope)
-6. [Acknowledgements](##Acknowledgements)
+2. [Screenshot](##screenshot)
+3. [Team Members](##team-members)
+4. [Installation & Deployment](##installation-&-deployment)
+5. [Future Scope](##future-scope)
+6. [Acknowledgements](##acknowledgements)
 
 ## General Info
 
